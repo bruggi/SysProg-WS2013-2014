@@ -13,32 +13,8 @@
 #include <inttypes.h>
 
 namespace statemachine {
-namespace FSMError {
 
-typedef enum {
-
-	OK = 0,
-	NULL_POINTER = -1,
-	UNEXPECTED_STATE = -2,
-	INVALID_PARAM = -3
-
-}type_t;
-
-const char* const AsString(type_t result) {
-	switch(result) {
-	case OK:				return "OK"; break;
-	case NULL_POINTER:		return "NULL_POINTER"; break;
-	case UNEXPECTED_STATE:	return "FSM state undefined!"; break;
-	case INVALID_PARAM:		return "Function parameter invalid"; break;
-
-	default:				return "Undefined result type!"; break;
-	} // end switch
-	return "Error in AsString function!";
-}
-
-} // namespace FSMError
-
-namespace FSMidentified {
+namespace FSMstatus {
 
 typedef enum {
 	INTEGER_ID = 1,
@@ -47,23 +23,17 @@ typedef enum {
 	SPECIAL_SIGN_2_ID = 4,
 	SIGN_ID = 5,
 	COMMENT_END = 6,
-	NOTHING
-}type_t;
 
-} // namespace FSMidentified
-
-namespace FSMstatus {
+	OK = 0,
+	NULL_POINTER = -1,
+	UNEXPECTED_STATE = -2,
+	INVALID_PARAM = -3
+}type_status;
 
 typedef struct {
 	uint8_t charsBack;
-//WEITERMACHEN
-	/*
-	 * schritte zurück
-	 * was identifiziert wurde
-	 * error msg
-	 *
-	 */
-}type_t;
+	type_status returnStatus;
+}status_struct;
 
 } // namespace FSMstatus
 

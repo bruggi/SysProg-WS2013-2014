@@ -52,7 +52,7 @@ public:
 	FSM();
 	~FSM();
 
-	FSMError::type_t validateChar(const char inputChar);
+	FSMstatus::status_struct validateChar(const char inputChar);
 
 	void printfTransTable();
 

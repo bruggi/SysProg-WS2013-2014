@@ -17,9 +17,17 @@ FSM::~FSM() {
 
 }
 
-FSMError::type_t FSM::validateChar(const char inputChar) {
+FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 
-	return FSMError::OK;
+	FSMstatus::status_struct returnStruct;
+	returnStruct.charsBack = 0;
+	returnStruct.returnStatus = FSMstatus::OK;
+
+
+
+
+
+	return returnStruct;
 }
 
 

@@ -20,7 +20,7 @@ class FSM  {
 
 private:
 
-	statematrix::states currentState;
+	statematrix::states::type_t currentState;
 	uint32_t row;
 	uint32_t column;
 	char currentChar;

@@ -33,6 +33,8 @@ typedef enum {
 typedef struct {
 	uint8_t charsBack;
 	type_status returnStatus;
+	uint32_t currentRow;
+	uint32_t currentColumn;
 }status_struct;
 
 } // namespace FSMstatus

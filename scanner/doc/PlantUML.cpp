@@ -7,6 +7,8 @@
  *   This file is only for PLANTUML code!
  */
 
+
+/*	class diagram	*/
 ///@startuml
 
 /// class FSM {
@@ -49,5 +51,23 @@
 ///@enduml
 
 
+/*	activity diagram	*/
+/// @startuml
+/// --> Scanner : nextToken()
+/// activate Scanner
+/// Scanner --> Buffer : getchar()
+/// activate Buffer
+/// loop until identified
+///    Scanner --> FSM : validateChar()
+///    activate FSM
+/// end
+/// deactivate FSM
+/// Scanner --> Symtable : saveToken()
+/// activate Symtable
+/// deactivate Symtable
+/// deactivate Buffer
+/// deactivate Scanner
+
+/// @enduml
 
 

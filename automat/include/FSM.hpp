@@ -27,26 +27,27 @@ private:
 
 
 	/*	normal states	*/
-	int state_START();
-	int state_DIG_SEEN();
-	int state_LTR_SEEN();
-	int state_SGN_1_SEEN();
-	int state_SGN_2_SEEN();
-	int state_SGN_2_ERR();
-	int state_COMMENT_1();
-	int state_COMMENT_2();
-	int state_COMMENT_3();
-	int state_COMMENT_ERR();
+	FSMstatus::status_struct state_START();
+	FSMstatus::status_struct state_DIG_SEEN();
+	FSMstatus::status_struct state_LTR_SEEN();
+	FSMstatus::status_struct state_SGN_1_SEEN();
+	FSMstatus::status_struct state_SGN_2_SEEN();
+	FSMstatus::status_struct state_SGN_2_ERR();
+	FSMstatus::status_struct state_COMMENT_1();
+	FSMstatus::status_struct state_COMMENT_2();
+	FSMstatus::status_struct state_COMMENT_3();
+	FSMstatus::status_struct state_COMMENT_ERR();
 
 	/*	end states	*/
-	int state_TOTAL_ERR();
-	int state_INT_ID();
-	int state_ID_ID();
-	int state_SPCL_SGN_1_ID();
-	int state_SPCL_SGN_2_ID();
-	int state_SGN_ID();
-	int state_COMMENT_END();
+	FSMstatus::status_struct state_TOTAL_ERR();
+	FSMstatus::status_struct state_INT_ID();
+	FSMstatus::status_struct state_ID_ID();
+	FSMstatus::status_struct state_SPCL_SGN_1_ID();
+	FSMstatus::status_struct state_SPCL_SGN_2_ID();
+	FSMstatus::status_struct state_SGN_ID();
+	FSMstatus::status_struct state_COMMENT_END();
 
+	bool charIsSign(const char inputChar);
 public:
 
 	FSM();

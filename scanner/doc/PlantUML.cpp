@@ -46,6 +46,8 @@
 /// Scanner --> Buffer
 /// Scanner -u-> SymTable
 /// Scanner -r-> Token
+///
+/// SymTable -r-> Information
 /// Token --> Information
 
 ///@enduml

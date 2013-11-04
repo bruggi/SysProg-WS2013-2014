@@ -11,7 +11,6 @@
 #include "StateMatrix.hpp"
 #include "FSMError.hpp"
 #include <stdio.h>
-#include <inttypes.h>
 
 
 namespace statemachine {

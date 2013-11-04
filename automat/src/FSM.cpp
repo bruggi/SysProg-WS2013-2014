@@ -194,7 +194,7 @@ FSMstatus::status_struct FSM::state_COMMENT_2() {
 	if(currentChar == '\n') {row++; column = 0;}
 	else {column++;}
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::COMMENT_START;
+	returnStruct.returnStatus = FSMstatus::COMMENT;
 	return returnStruct;
 }
 
@@ -202,7 +202,7 @@ FSMstatus::status_struct FSM::state_COMMENT_3() {
 	FSMstatus::status_struct returnStruct;
 	column++;
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::OK;
+	returnStruct.returnStatus = FSMstatus::COMMENT;
 	return returnStruct;
 }
 

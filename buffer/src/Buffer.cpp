@@ -1,158 +1,206 @@
 /*
- * Buffer.cpp
- *
- *  Created on: Sep 26, 2012
- *      Author: knad0001
- *
- */
+* Buffer.cpp
+*
+* Created on: 2013.10.01
+* Author: Esra
+*
+*/
 
 #include "Buffer.h"
+
+namespace buffer {
 
 Buffer::Buffer() {
 	bufferA = NULL;
 	bufferB = NULL;
+	p_bufferA = NULL;
+	p_bufferB = NULL;
 
-	initBuffer();
 	currentPos = 0;
 	actualBuffer = 0;
+	fileId = 0;
 
-	}
+}
 
 
 /*
- *	Speicher wird für BufferA und bufferB allokiert.
- *		getpagesize() returns the number of bytes in an memory page.
- *
- *	void Buffer wird zu char gecasted und pbuffer zugewiesen.
- *	Danach wird open aufgerufen.
- *	Überprüfung ob beide Speicherbereiche erfolgreich allokiert wurden. (erfolgreich liefert 0 zurück ).
- */
-int Buffer::initBuffer(){
-		int ret = 0, ret2 = 0;
-		ret = posix_memalign( &bufferA, getpagesize(), BUFFERSIZE);
-		ret2 = posix_memalign( &bufferB, getpagesize(),BUFFERSIZE);
+*        Speicher wird für BufferA und bufferB allokiert.
+*                getpagesize() returns the number of bytes in an memory page.
+*
+*        void Buffer wird zu char gecasted und pbuffer zugewiesen.
+*        Danach wird open aufgerufen.
+*        Überprüfung ob beide Speicherbereiche erfolgreich allokiert wurden. (erfolgreich liefert 0 zurück ).
+*/
+bufferError::type_t Buffer::initBuffer(const char* path){
 
-		pbufferA = (char*)bufferA;
-		pbufferB = (char*)bufferB;
+	if(path == NULL) {
+		return bufferError::NULL_POINTER;
+	}
 
-		openFile();
+	int ret;
+	ret = posix_memalign( &bufferA, getpagesize(), BUFSIZE);
+	if(ret != 0) {
+		return bufferError::ALLOC_ERR;
+	}
 
-      if (ret != 0  || ret2 != 0){
-    	  return -1;
-      }else {
-    	  return 1;
-      }
+	ret = posix_memalign( &bufferB, getpagesize(),BUFSIZE);
+	if(ret != 0) {
+		return bufferError::ALLOC_ERR;
+	}
 
+	p_bufferA = (char*)bufferA;
+	p_bufferB = (char*)bufferB;
+
+	bufferError::type_t openRet;
+	openRet = openFile(path);
+	if(openRet != bufferError::OK) {
+		return openRet;
+	}
+
+	return bufferError::OK;
 
 }
 
 /*
- * Öffnet Datei. Ruft fillBuffer() auf.
- * Gibt Fehler aus falls Datei nicht geöffnet werden kann.
- */
-void Buffer::openFile(){
-		filePath = "/home/wei-nad/Dokumente/text.txt";
-       	fileId = open(filePath , O_DIRECT | O_RDONLY);
+* Öffnet Datei. Ruft fillBuffer() auf.
+* Gibt Fehler aus falls Datei nicht geöffnet werden kann.
+*/
+bufferError::type_t Buffer::openFile(const char* path){
 
-       	if(fileId == -1){
-       		cout << "DU hast etwas falsch gemacht!!Fehler beim oeffnen der Datei!";
-       	}
+	if(path == NULL) {
+		return bufferError::NULL_POINTER;
+	}
 
-       	fillBuffer(bufferA);
-       	fillBuffer(bufferB);
+	fileId = open(path , O_DIRECT | O_RDONLY);
+
+	if(fileId == -1){
+		return bufferError::OPEN_ERR;
+	}
+
+	bufferError::type_t ret;
+
+	ret = fillBuffer(bufferA);
+	if(ret != bufferError::OK) {
+		return ret;
+	}
+
+	ret = fillBuffer(bufferB);
+	if(ret != bufferError::OK) {
+		return ret;
+	}
+
+	return bufferError::OK;
 }
 
 /*
- * Wechselt Buffer, wenn 512 Zeichen eingelesen sind.
- */
-void Buffer::switchBuffer(){
+* Wechselt Buffer, wenn 512 Zeichen eingelesen sind.
+*/
+bufferError::type_t Buffer::switchBuffer(){
 
-	if(currentPos == 1023){
-			currentPos = 0;
-			fillBuffer(bufferA);
-	}else if (currentPos == 511){
-			fillBuffer(bufferB);
+	if(currentPos == (BUFSIZE * 2 - 1)){
+		currentPos = 0;
+		bufferError::type_t ret = fillBuffer(bufferA);
+		if(ret != bufferError::OK) {
+			return ret;
+		}
+	}else if (currentPos == (BUFSIZE - 1)){
+		bufferError::type_t ret = fillBuffer(bufferB);
+		if(ret != bufferError::OK) {
+			return ret;
+		}
 	}
 
-//	if(actualBuffer == 0){
-//		fillBuffer(bufferB);
-//		actualBuffer = 1;
+//        if(actualBuffer == 0){
+//                fillBuffer(bufferB);
+//                actualBuffer = 1;
 //
-//	}else if (actualBuffer == 1){
-//		fillBuffer(bufferA);
-//		actualBuffer = 0;
-//	}
+//        }else if (actualBuffer == 1){
+//                fillBuffer(bufferA);
+//                actualBuffer = 0;
+//        }
+	return bufferError::OK;
 }
 
 /*
- * Ließt Zeichen ein und schreibt sie in den entsprechenden Buffer.
- * Zu Beginn wird BufferA gefüllt.
- * Wenn keine Zeichen gelesen werden, wird die Datei geschlossen.
- * Sind 512 Zeichen gelesen wird switchBuffer() aufgerufen und BufferB wird gefüllt.
- */
-void Buffer::fillBuffer( void*  buffer){
+* Ließt Zeichen ein und schreibt sie in den entsprechenden Buffer.
+* Zu Beginn wird BufferA gefüllt.
+* Wenn keine Zeichen gelesen werden, wird die Datei geschlossen.
+* Sind 512 Zeichen gelesen wird switchBuffer() aufgerufen und BufferB wird gefüllt.
+*/
+bufferError::type_t Buffer::fillBuffer(void* buffer){
 
-    countChars =  read(fileId, buffer, 512);
+	if(buffer == NULL) {
+		return bufferError::NULL_POINTER;
+	}
+	countChars = read(fileId, buffer, BUFSIZE);
 
-    if(countChars == 0 ){ 	//Schließen wenn kein Zeichen mehr da ist
-    	if(currentPos <511){
-    		pbufferA[currentPos+1] = '\0';
-    	} else if (currentPos<1023){
-    		pbufferB[currentPos-512 + 1] ='\0';
-    	}else if(currentPos == 1023){
-    		pbufferA[0] ='\0';
-    	}
+	if(countChars == 0 ){         //Schließen wenn kein Zeichen mehr da sind
+		if(currentPos < (BUFSIZE - 1)){
+				p_bufferA[currentPos+1] = '\0';
+		} else if (currentPos< (BUFSIZE * 2 - 1)){
+				p_bufferB[currentPos-BUFSIZE + 1] ='\0';
+		} else if(currentPos == (BUFSIZE * 2 - 1)){
+				p_bufferA[0] ='\0';
+		}
 
-  	close(fileId);
-  }
+	  close(fileId);
+	}
 
+	return bufferError::OK;
 }
 
 /*
- * Gibt ein Zeichen aus dem Buffer zurück.
- * kann nicht entscheiden ob ende erreicht ist.
- */
-char Buffer::getChar(){
+* Gibt ein Zeichen aus dem Buffer zurück.
+* kann nicht entscheiden ob ende erreicht ist.
+*/
+bufferError::type_t Buffer::getChar(char& out_char){
 
-	char c;
-	if(currentPos <512){
-		c = pbufferA[currentPos];
+	/*	TODO: abfangen, wenn trotz \0 mehrmals getChar aufgerufen wird!	*/
+
+	if(currentPos < BUFSIZE){
+		out_char = p_bufferA[currentPos];
 		currentPos++;
-	}else{
-		c = pbufferB[currentPos-512];
+	} else {
+		out_char = p_bufferB[currentPos - BUFSIZE];
 		currentPos++;
 	}
-	switchBuffer();
-	return c;
+
+	bufferError::type_t ret = switchBuffer();
+	if(ret != bufferError::OK) {
+		return ret;
+	}
+
+	return bufferError::OK;
 }
 
 
 /*
- * Beim Aufrufen von ungetChar() geht currentPos eine Stelle zurück,
- * ist currentPos jedoch an der ersten Position in BufferA dann muss zurückgegangen werden
- * auf die letzte Stelle von BufferB
- */
-void Buffer::ungetChar(){
+* Beim Aufrufen von ungetChar() geht currentPos eine Stelle zurück,
+* ist currentPos jedoch an der ersten Position in BufferA dann muss zurückgegangen werden
+* auf die letzte Stelle von BufferB
+*/
+void Buffer::ungetChar(size_t stepsBack){
 
+	/*	TODO: machen!!	*/
 	if(currentPos == 0){
-		currentPos = 1023;
+			currentPos = (BUFSIZE * 2 - 1);
+			currentPos -= stepsBack;
 	}else {
-		currentPos--;
+			currentPos-= stepsBack;
+
 	}
 }
 
 
 Buffer::~Buffer() {
-	// TODO Auto-generated destructor stub
 
+	if(p_bufferA != NULL){
+		delete p_bufferA;
+	}
 
-		if(pbufferA != 0){
-			delete pbufferA;
-		}
+	if(p_bufferB != NULL){
+		delete p_bufferB;
+	}
+} 
 
-		if(pbufferB != 0){
-			delete pbufferB;
-		}
-
-
-}
+} // namespace buffer

@@ -1,6 +1,6 @@
 #
 #	Makefile for creation of an static
-#	buffer.a library
+#	automat.a library
 #
 # author: johannes.kolb
 #
@@ -19,7 +19,7 @@ BIN_DIR = Debug
 
 INCLUDES = -I
 #LIBS = -L/usr/blub/lib -lblub
-OBJECTS = $(OBJ_DIR)/Buffer.o
+OBJECTS = $(OBJ_DIR)/FSM.o
 
 .PHONY : clean
 
@@ -33,7 +33,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 ###
 # link static library
 #
-$(LIB_DIR)/buffer.a : $(OBJECTS)
+$(LIB_DIR)/automat.a : $(OBJECTS)
 	ar rcs $@ $^
 	
 ###

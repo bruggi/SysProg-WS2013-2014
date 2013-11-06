@@ -25,7 +25,7 @@ public:
 	Automat();
 	virtual ~Automat();
 
-	virtual FSMError::type_t validateChar(const char inputChar) = 0;
+	virtual FSMstatus::status_struct validateChar(const char inputChar) = 0;
 
 }; // class Automat
 

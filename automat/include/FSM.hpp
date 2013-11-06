@@ -9,13 +9,13 @@
 #define FSM_HPP_INCLUDED
 
 #include "StateMatrix.hpp"
-#include "FSMError.hpp"
+//#include "FSMError.hpp"
+#include "Automat.hpp"
 #include <stdio.h>
-
 
 namespace statemachine {
 
-class FSM  {
+class FSM : public Automat {
 
 private:
 

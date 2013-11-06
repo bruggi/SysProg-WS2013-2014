@@ -14,13 +14,24 @@ typedef enum {
 	INTEGER,
 	IDENTIFIER,
 	ERROR,
-	KEY_IF,
-	KEY_WHILE,
-	KEY_PLUS,
-	KEY_MINUS,
-	KEY_SLASH,
-	KEY_STAR,
-	KEY_
+	KEY_IF,					/*	'if'	*/
+	KEY_WHILE,				/*	'while'	*/
+	KEY_PLUS,				/*	'+'		*/
+	KEY_MINUS,				/*	'-'		*/
+	KEY_SLASH,				/*	'/'		*/
+	KEY_STAR,				/*	'*'		*/
+	KEY_SEMICOLON,			/*	';'		*/
+	KEY_BRAKET_RND_OPEN,	/*	'('		*/
+	KEY_BRAKET_RND_CLOSE,	/*	')'		*/
+	KEY_BRAKET_SQR_OPEN,	/*	'['		*/
+	KEY_BRAKET_SQR_CLOSE,	/*	']'		*/
+	KEY_BRAKET_CLY_OPEN,	/*	'{'		*/
+	KEY_BRAKET_CLY_CLOSE,	/*	'}'		*/
+	KEY_EQUAL,				/*	'='		*/
+	KEY_BANG,				/*	'!'		*/
+	KEY_BRAKET_ARRW_OPEN,	/*	'<'		*/
+	KEY_BRAKET_ARRW_CLOSE,	/*	'>'		*/
+	KEY_AMPERSAND			/*	'&'		*/
 
 }type_t;
 

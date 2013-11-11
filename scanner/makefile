@@ -21,14 +21,14 @@ AUTOMAT_DIR = ../automat
 BUFFER_DIR = ../buffer
 #SYMTABLE_DIR = ../symtable
 
+INCLUDES = -I$(AUTOMAT_DIR)/include -I$(BUFFER_DIR)/src
+LIBS = -L$(AUTOMAT_DIR)/lib -L$(BUFFER_DIR)/lib -lautomat -lbuffer
 
-INCLUDES = -I
-#LIBS = -L/usr/blub/lib -lblub
 OBJECTS = $(OBJ_DIR)/Scanner.o
 
-.PHONY : clean
+.PHONY : clean all
 
-all: 
+all: automatLib bufferLib $(LIB_DIR)/scanner.so
 
 
 automatLib:
@@ -37,35 +37,34 @@ automatLib:
 bufferLib:
 	$(MAKE) -C $(BUFFER_DIR)
 
-
-
-
+#symtableLib:
+#	$(MAKE) -C $(SYMTABLE_DIR)
 
 ###
 # compile 
 #
-scannerLib: $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
+	@echo "compile scanner"
 	@echo "g++ $*.cpp"
-	$(CC) $(CFLAGS) -c -o $@  $<
+	$(CC) $(CFLAGS) $(INCLUDES) -c -fPIC -o $@  $<
 
 ###
 # link shared library
 #
-$(LIB_DIR)/buffer.a : $(OBJECTS)
-	ar rcs $@ $^
+$(LIB_DIR)/scanner.so : $(OBJECTS)
+	@echo "link scanner"
+	$(CC) -shared $(LIBS) -o $^
 	
 ###
 # clean targets
 #
 clean:
+	@echo "clean all"
+	$(MAKE) -C $(AUTOMAT_DIR) clean
+	$(MAKE) -C $(BUFFER_DIR) clean
 	rm -rf $(OBJ_DIR)/*
 	rm -rf $(LIB_DIR)/*
-	rm -rf $(AUTOMAT_DIR)/$(OBJ_DIR)/*
-	rm -rf $(AUTOMAT_DIR)/$(LIB_DIR)/*
-	rm -rf $(BUFFER_DIR)/$(OBJ_DIR)/*
-	rm -rf $(BUFFER_DIR)/$(LIB_DIR)/*
-	rm -rf $(SYMTABLE_DIR)/$(LIB_DIR)/*
-	rm -rf $(SYMTABLE_DIR)/$(OBJ_DIR)/*
+
 	
 
 

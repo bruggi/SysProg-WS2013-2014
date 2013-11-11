@@ -21,12 +21,15 @@ INCLUDES = -I
 #LIBS = -L/usr/blub/lib -lblub
 OBJECTS = $(OBJ_DIR)/Buffer.o
 
-.PHONY : clean
+.PHONY : clean all
+
+all: clean $(LIB_DIR)/buffer.a
 
 ###
 # compile automat
 #
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
+	@echo "compile buffer"
 	@echo "g++ $*.cpp"
 	$(CC) $(CFLAGS) -c -o $@  $<
 
@@ -34,12 +37,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 # link static library
 #
 $(LIB_DIR)/buffer.a : $(OBJECTS)
+	@echo "link buffer"
 	ar rcs $@ $^
 	
 ###
 # clean targets
 #
 clean:
+	@echo "clean buffer"
 	rm -rf Debug/*
 	rm -rf lib/*
 	

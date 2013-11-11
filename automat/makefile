@@ -21,12 +21,15 @@ INCLUDES = -I
 #LIBS = -L/usr/blub/lib -lblub
 OBJECTS = $(OBJ_DIR)/FSM.o
 
-.PHONY : clean
+.PHONY : clean all
+
+all: clean $(LIB_DIR)/automat.a
 
 ###
 # compile automat
 #
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
+	@echo "compile automat"
 	@echo "g++ $*.cpp"
 	$(CC) $(CFLAGS) -c -o $@  $<
 
@@ -34,12 +37,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 # link static library
 #
 $(LIB_DIR)/automat.a : $(OBJECTS)
+	@echo "link automat"
 	ar rcs $@ $^
 	
 ###
 # clean targets
 #
 clean:
+	@echo "clean automat"
 	rm -rf Debug/*
 	rm -rf lib/*
 	

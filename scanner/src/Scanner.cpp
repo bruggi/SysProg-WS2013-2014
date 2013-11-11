@@ -25,7 +25,7 @@ ScannerError::type_t Scanner::init() {
 		return ScannerError::NULL_POINTER;
 	}
 
-	statemachine = new Automat();
+	statemachine = new statemachine::Automat();
 
 
 	return ScannerError::OK;

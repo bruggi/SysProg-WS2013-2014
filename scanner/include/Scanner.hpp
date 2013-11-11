@@ -8,8 +8,8 @@
 #ifndef SCANNER_HPP_INCLUDED
 #define SCANNER_HPP_INCLUDED
 
-#include "Automat.hpp"
-#include "Buffer.h"
+#include <Automat.hpp>
+#include <Buffer.h>
 
 #include "ScannerError.hpp"
 #include "Token.hpp"
@@ -20,10 +20,10 @@ class Scanner {
 
 private:
 
-	Automat* statemachine;
+	statemachine::Automat* statemachine;
 	char* characterBuffer;
 
-	const size_t BUFSIZE = 256;
+	static const size_t BUFSIZE = 256;
 
 public:
 

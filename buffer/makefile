@@ -23,7 +23,7 @@ OBJECTS = $(OBJ_DIR)/Buffer.o
 
 .PHONY : clean all
 
-all: clean $(LIB_DIR)/buffer.a
+all: clean $(LIB_DIR)/libbuffer.a
 
 ###
 # compile automat
@@ -36,7 +36,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 ###
 # link static library
 #
-$(LIB_DIR)/buffer.a : $(OBJECTS)
+$(LIB_DIR)/libbuffer.a : $(OBJECTS)
 	@echo "link buffer"
 	ar rcs $@ $^
 	

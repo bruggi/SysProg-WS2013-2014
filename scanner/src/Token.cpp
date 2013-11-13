@@ -63,39 +63,12 @@ uint32_t Token::getColumn() const {
 tokentype::type_t Token::getType() const {
 	return this->type;
 }
-
-/**
- * Gets the token value as string back.
- *
- * @param [out] outStr		Pointer to a memory block to write.
- * @param [in] outStrSize	Size if this pointer.
- *
- * @return		true		If string was successfully written.
- * 				false		If pointer was NULL, or size was too small.
- */
-bool Token::getValueString(char* outStr, uint32_t outStrSize) {
-	if((outStr == NULL) || (outStrSize < this->valueSize)) {
-		return false;
-	}
-	memcpy(outStr, this->value, outStrSize);
-	return true;
+const char* const Token::getValue(uint32_t& size) const {
+	size = this->valueSize;
+	return this->value;
 }
-
-/**
- * Gets the token value as integer back.
- * Only works, if the token type is an "Integer"
- *
- * @param [out] outInt		Reference to an integer to write.
- *
- * @return		true		If value was successfully written.
- * 				false		If token is not an Integer.
- */
-bool Token::getValueInteger(int& outInt) {
-	if(this->type != tokentype::Integer) {
-		return false;
-	}
-	outInt = (int) strol(this->value);
-	return true;
+char* Token::getValueRW(uint32_t& size) {
+	size = this->valueSize;
+	return this->value;
 }
-
 

@@ -23,7 +23,7 @@ OBJECTS = $(OBJ_DIR)/FSM.o
 
 .PHONY : clean all
 
-all: clean $(LIB_DIR)/automat.a
+all: clean $(LIB_DIR)/libautomat.a
 
 ###
 # compile automat
@@ -36,7 +36,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 ###
 # link static library
 #
-$(LIB_DIR)/automat.a : $(OBJECTS)
+$(LIB_DIR)/libautomat.a : $(OBJECTS)
 	@echo "link automat"
 	ar rcs $@ $^
 	

@@ -20,6 +20,7 @@ class Scanner {
 
 private:
 
+	buffer::Buffer* bufferClass;
 	statemachine::Automat* statemachine;
 	char* characterBuffer;
 
@@ -30,7 +31,7 @@ public:
 	Scanner();
 	~Scanner();
 
-	ScannerError::type_t init();
+	ScannerError::type_t init(const char* path);
 
 	ScannerError::type_t getToken(Token& token_out);
 

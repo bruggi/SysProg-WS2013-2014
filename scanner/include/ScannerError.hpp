@@ -13,7 +13,9 @@ namespace ScannerError {
 typedef enum {
 	OK = 0,
 	NULL_POINTER = -1,
-	INVALID_PARAM = -2
+	INVALID_PARAM = -2,
+	SCANNER_NOT_INIT = -3,
+	BUFFER_INIT_ERR = -4
 
 }type_t;
 

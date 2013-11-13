@@ -37,8 +37,9 @@ public:
 	uint32_t getRow() const;
 	uint32_t getColumn() const;
 	tokentype::type_t getType() const;
-	bool getValueString(char* outStr, uint32_t outStrSize);
-	bool getValueInteger(int& outInt);
+	const char* const getValue(uint32_t& size) const;
+	char* getValueRW(uint32_t& size);
+
 
 
 }; // class Token

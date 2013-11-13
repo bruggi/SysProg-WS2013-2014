@@ -155,7 +155,9 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 */
 bufferError::type_t Buffer::getChar(char& out_char){
 
-	/*	TODO: abfangen, wenn trotz \0 mehrmals getChar aufgerufen wird!	*/
+	if((p_bufferA[currentPos] == '\0') || (p_bufferB[currentPos] == '\0')) {
+		out_char = '\0';
+	}
 
 	if(currentPos < BUFSIZE){
 		out_char = p_bufferA[currentPos];
@@ -181,13 +183,14 @@ bufferError::type_t Buffer::getChar(char& out_char){
 */
 void Buffer::ungetChar(size_t stepsBack){
 
-	/*	TODO: machen!!	*/
-	if(currentPos == 0){
-			currentPos = (BUFSIZE * 2 - 1);
-			currentPos -= stepsBack;
-	}else {
-			currentPos-= stepsBack;
+	for (int i = stepsBack; i > 0; i--) {
+		if(currentPos == 0){
+				currentPos = (BUFSIZE * 2 - 1);
+				currentPos -= 1;
+		}else {
+				currentPos-= 1;
 
+		}
 	}
 }
 

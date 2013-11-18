@@ -51,6 +51,10 @@ FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 	{
 		returnStruct = state_SGN_2_SEEN();
 	} break;
+	case statematrix::states::SGN_1_ERR:
+	{
+		returnStruct = state_SGN_1_ERR();
+	} break;
 	case statematrix::states::SGN_2_ERR:
 	{
 		returnStruct = state_SGN_2_ERR();
@@ -172,6 +176,14 @@ FSMstatus::status_struct FSM::state_SGN_2_SEEN() {
 	return returnStruct;
 }
 
+FSMstatus::status_struct FSM::state_SGN_1_ERR() {
+	FSMstatus::status_struct returnStruct;
+	column -= 1;	/*	currentChar doesn't counts in column count here	*/
+	returnStruct.charsBack = 2;
+	returnStruct.returnStatus = FSMstatus::STEP_BACK;
+	return returnStruct;
+}
+
 FSMstatus::status_struct FSM::state_SGN_2_ERR() {
 	/*	ungetchar(3)	*/
 	FSMstatus::status_struct returnStruct;
@@ -185,7 +197,7 @@ FSMstatus::status_struct FSM::state_COMMENT_1() {
 	FSMstatus::status_struct returnStruct;
 	column++;
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::OK;
+	returnStruct.returnStatus = FSMstatus::COMMENT;
 	return returnStruct;
 }
 
@@ -209,7 +221,7 @@ FSMstatus::status_struct FSM::state_COMMENT_3() {
 FSMstatus::status_struct FSM::state_COMMENT_ERR() {
 	FSMstatus::status_struct returnStruct;
 	/*	ungetchar(2)	*/
-	row -= 1;	/*	currentChar don't counts in col counter here	*/
+	column -= 1;	/*	currentChar don't counts in col counter here	*/
 	returnStruct.charsBack = 2;
 	returnStruct.returnStatus = FSMstatus::STEP_BACK;
 	return returnStruct;
@@ -259,14 +271,17 @@ FSMstatus::status_struct FSM::state_SPCL_SGN_2_ID() {
 
 FSMstatus::status_struct FSM::state_SGN_ID() {
 	FSMstatus::status_struct returnStruct;
+	/*	is the current character a sign what interests me?	*/
 	if(charIsSign(currentChar)) {
 		column++;
 		returnStruct.charsBack = 0;
+		returnStruct.returnStatus = FSMstatus::SIGN_ID;
 	} else {
-		/*	'else' wount be counted	*/
+		/*	no interesting sign found	*/
 		returnStruct.charsBack = 1;
+		returnStruct.returnStatus = FSMstatus::STEP_BACK;
 	}
-	returnStruct.returnStatus = FSMstatus::SIGN_ID;
+
 	return returnStruct;
 }
 

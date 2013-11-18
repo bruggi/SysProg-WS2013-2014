@@ -31,6 +31,7 @@ private:
 	FSMstatus::status_struct state_LTR_SEEN();
 	FSMstatus::status_struct state_SGN_1_SEEN();
 	FSMstatus::status_struct state_SGN_2_SEEN();
+	FSMstatus::status_struct state_SGN_1_ERR();
 	FSMstatus::status_struct state_SGN_2_ERR();
 	FSMstatus::status_struct state_COMMENT_1();
 	FSMstatus::status_struct state_COMMENT_2();

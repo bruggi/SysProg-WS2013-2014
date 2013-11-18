@@ -23,6 +23,7 @@ typedef enum {
 	COMMENT_2 = 7,
 	COMMENT_3 = 8,
 	COMMENT_ERR = 9,
+	SGN_1_ERR = 10,
 	TOTAL_ERR,	/*	end states	*/
 	INT_ID,
 	ID_ID,
@@ -64,6 +65,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end digits (if)
@@ -81,6 +83,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end letters (if)
@@ -104,6 +107,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end not important signs (if)
@@ -120,6 +124,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_END; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end '/' (if)
@@ -136,6 +141,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_3; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_3; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end '*' (if)
@@ -152,6 +158,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::SGN_ID;		break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end '=' (if)
@@ -168,6 +175,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR;	break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				} // end switch
 			} // end '!' (if)
@@ -184,6 +192,7 @@ void initStateMatrix() {
 				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
 				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				}
 			}
@@ -208,6 +217,7 @@ const char* const stateAsString(states::type_t state) {
 	case states::SGN_2_SEEN:	return "SIGN_2_SEEN";				break;
 	case states::SPCL_SGN_1_ID:	return "SPECIAL_SIGN_1_SEEN";		break;
 	case states::SPCL_SGN_2_ID:	return "SPECIAL_SIGN_2_SEEN";		break;
+	case states::SGN_1_ERR:		return "Sign_1_ERROR";				break;
 	case states::SGN_2_ERR:		return "SIGN_2_ERROR";				break;
 	case states::SGN_ID:		return "SIGN_IDENTIFIED";			break;
 	case states::COMMENT_1:		return "COMMENT_1";					break;

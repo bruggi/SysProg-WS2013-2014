@@ -12,7 +12,7 @@
 using namespace std;
 
 int main(){
-	Hashtable<int>* tabelle = new Hashtable<int>(20);	//symboltabelle muss charpointer als value speichern funktioniert nur bei 3!!!
+	Hashtable<int>* tabelle = new Hashtable<int>(30000000);	//symboltabelle muss charpointer als value speichern funktioniert nur bei 3!!!
 	cout << tabelle->contains("hallo") << endl;
 	tabelle->put("hallo",10);
 	tabelle->put("hallo",5);

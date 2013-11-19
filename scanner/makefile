@@ -28,7 +28,7 @@ OBJECTS = $(OBJ_DIR)/Scanner.o
 
 .PHONY : clean all
 
-all: automatLib bufferLib scannerLib
+all: automatLib bufferLib clean scannerLib
 
 
 automatLib:
@@ -53,7 +53,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 #
 scannerLib: $(OBJECTS)
 	@echo "link scanner"
-	$(CC) -shared $(LIBS) -o $(LIB_DIR)/scanner.so $^
+	$(CC) -shared $(LIBS) -o $(LIB_DIR)/libscanner.so $^
 
 # g++ -shared  -o $(SHAREDLIB)/libScanner.so $^ 
 
@@ -61,9 +61,7 @@ scannerLib: $(OBJECTS)
 # clean targets
 #
 clean:
-	@echo "clean all"
-	$(MAKE) -C $(AUTOMAT_DIR) clean
-	$(MAKE) -C $(BUFFER_DIR) clean
+	@echo "clean scanner"
 	rm -rf $(OBJ_DIR)/*
 	rm -rf $(LIB_DIR)/*
 

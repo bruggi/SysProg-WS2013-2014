@@ -112,12 +112,12 @@ public:
 	bool remove(string key) {
 		ListElement<Pair<type> >* listIterator = table[hashcode(key) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
-			for (int i =0;i< table[hashcode(key) % size].size();i++) {
+			for (int i = 0;i < table[hashcode(key) % size].size();i++) {
 				if (key == listIterator->getPairObject()->key) {
 					table[hashcode(key) % size].erase(listIterator); //löscht den gesuchten Wert aus der liste
 					cout << "gelöscht" << endl;
 
-					return (!contains(key));
+					return true; //(!contains(key));
 				}
 				listIterator = listIterator->getNext();
 			}
@@ -142,11 +142,13 @@ public:
 	void dump() {
 		cout << "dump" << endl;
 		for(int i = 0; i  < size; i++) {
-			cout << i << ": ";
-			for(int j = 0; j < table[i].size(); j++) {
+			if(table[i].size() > 0){
+				cout << i << ": ";
+				for(int j = 0; j < table[i].size(); j++) {
 				cout << table[i].get(j)->getPairObject()->key << " " << table[i].get(j)->getPairObject()->value << "\n";
-			}
+				}
 			cout << "\n";
+			}
 		}
 
 	}

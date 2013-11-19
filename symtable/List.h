@@ -71,9 +71,10 @@ public:
 		if (tmp == NULL) {
 			cout << "Wert konnte nicht gelöscht werden" << endl;
 			return false;
-		}else if(tmp->getPairObject() == first->getPairObject() &&tmp->getPairObject()== last->getPairObject()) {
-			delete [] tmp;
+		}else if(tmp->getPairObject() == this->first->getPairObject() && tmp->getPairObject() == this->last->getPairObject()) { //hier der fehler?
+			delete[] tmp;
 			first = last = NULL;
+			elements--;
 		} else if (tmp->getPairObject() == this->first->getPairObject()) {
 			this->first = tmp->getNext();
 			tmp->next->setPrev(first);

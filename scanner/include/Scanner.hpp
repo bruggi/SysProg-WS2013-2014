@@ -8,7 +8,7 @@
 #ifndef SCANNER_HPP_INCLUDED
 #define SCANNER_HPP_INCLUDED
 
-#include <Automat.hpp>
+#include <FSM.hpp>
 #include <Buffer.h>
 
 #include "ScannerError.hpp"
@@ -21,10 +21,14 @@ class Scanner {
 private:
 
 	buffer::Buffer* bufferClass;
-	statemachine::Automat* statemachine;
+	statemachine::FSM* statemachine;
 	char* characterBuffer;
+	size_t bufIndexer;
 
 	static const size_t BUFSIZE = 256;
+
+	tokentype::type_t identifySign(char sign);
+	ScannerError::type_t saveChar(char currentChar);
 
 public:
 

@@ -6,6 +6,7 @@
  */
 
 #include "../include/Token.hpp"
+#include <string.h>
 
 
 Token::Token() {

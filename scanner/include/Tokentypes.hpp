@@ -14,6 +14,7 @@ typedef enum {
 	INTEGER,
 	IDENTIFIER,
 	ERROR,
+	UNDEFINED,
 	KEY_IF,					/*	'if'	*/
 	KEY_WHILE,				/*	'while'	*/
 	KEY_PLUS,				/*	'+'		*/
@@ -31,7 +32,10 @@ typedef enum {
 	KEY_BANG,				/*	'!'		*/
 	KEY_BRAKET_ARRW_OPEN,	/*	'<'		*/
 	KEY_BRAKET_ARRW_CLOSE,	/*	'>'		*/
-	KEY_AMPERSAND			/*	'&'		*/
+	KEY_AMPERSAND,			/*	'&'		*/
+	KEY_COMPARE,			/*	'=='	*/
+	KEY_COMPARE_NOT			/*	'=!='	*/
+
 
 }type_t;
 

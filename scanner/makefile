@@ -14,6 +14,7 @@ CFLAGS = -g -Wall
 #
 SRC_DIR = src
 OBJ_DIR = Debug
+SHARED_LIB_DIR = ../shared_libs
 LIB_DIR = lib
 BIN_DIR = Debug
 
@@ -22,9 +23,9 @@ BUFFER_DIR = ../buffer
 #SYMTABLE_DIR = ../symtable
 
 INCLUDES = -I$(AUTOMAT_DIR)/include -I$(BUFFER_DIR)/src
-LIBS = -L$(AUTOMAT_DIR)/lib -L$(BUFFER_DIR)/lib -lautomat -lbuffer
+#LIBS = -L$(AUTOMAT_DIR)/$(LIB_DIR) -L$(BUFFER_DIR)/$(LIB_DIR) -lautomat -lbuffer
 
-OBJECTS = $(OBJ_DIR)/Scanner.o
+OBJECTS = $(OBJ_DIR)/Scanner.o $(OBJ_DIR)/Token.o $(AUTOMAT_DIR)/$(OBJ_DIR)/FSM.o $(AUTOMAT_DIR)/$(OBJ_DIR)/StateMatrix.o $(BUFFER_DIR)/$(OBJ_DIR)/Buffer.o
 
 .PHONY : clean all
 
@@ -53,7 +54,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 #
 scannerLib: $(OBJECTS)
 	@echo "link scanner"
-	$(CC) -shared $(LIBS) -o $(LIB_DIR)/libscanner.so $^
+	$(CC) -shared -o $(SHARED_LIB_DIR)/libscanner.so $^
 
 # g++ -shared  -o $(SHAREDLIB)/libScanner.so $^ 
 
@@ -63,7 +64,7 @@ scannerLib: $(OBJECTS)
 clean:
 	@echo "clean scanner"
 	rm -rf $(OBJ_DIR)/*
-	rm -rf $(LIB_DIR)/*
+	rm -f $(SHARED_LIB_DIR)/scanner.so
 
 	
 

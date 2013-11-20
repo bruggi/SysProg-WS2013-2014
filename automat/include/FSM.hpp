@@ -15,11 +15,12 @@
 
 namespace statemachine {
 
-class FSM : public Automat {
+class FSM {
 
 private:
 
-	statematrix::states::type_t currentState;
+	StateMatrix* statematrix;
+	states::type_states currentState;
 	uint32_t row;
 	uint32_t column;
 	char currentChar;

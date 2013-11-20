@@ -9,12 +9,37 @@
 
 namespace statemachine {
 
+namespace FSMstatus {
+
+const char* const asString(type_status status) {
+	switch(status) {
+	case INTEGER_ID:			return "Integer identified"; break;
+	case IDENTIFIER_ID:			return "Identifier identified"; break;
+	case SPECIAL_SIGN_1_ID:		return "Special sign 1 identified"; break;
+	case SPECIAL_SIGN_2_ID:		return "Special sign 1 identified"; break;
+	case SIGN_ID:				return "Sign identified"; break;
+	case COMMENT_END:			return "Comment end"; break;
+	case STEP_BACK:				return "Step back!"; break;
+	case IGNORE:				return "Ignore character"; break;
+	case OK:					return "OK"; break;
+	case END_OF_FILE:			return "End of File"; break;
+	case NULL_POINTER:			return "NULL_POINTER"; break;
+	case UNEXPECTED_STATE:		return "Unexpected state"; break;
+	case INVALID_PARAM:			return "Invalid function param"; break;
+	default:					return "Undefined!!"; break;
+	} // end switch
+	return "";
+}
+
+}//end namespace FSMstatus
+
+//------------------------------------------------------------------------------
 FSM::FSM() {
-	statematrix::initStateMatrix();
+	statematrix = new StateMatrix();
 	row = 0;
 	column = 0;
 	currentChar = 0;
-	currentState = statematrix::states::START;
+	currentState = states::START;
 }
 
 FSM::~FSM() {
@@ -27,101 +52,101 @@ FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 
 	currentChar = inputChar;
 	/*	get new state	*/
-	currentState = statematrix::transitions[(uint8_t) currentChar][currentState];
+	currentState = statematrix->transitions[(uint8_t) currentChar][currentState];
 
 
 	switch(currentState) {
-	case statematrix::states::START:
+	case states::START:
 	{
 		returnStruct = state_START();
 	} break;
-	case statematrix::states::DIG_SEEN:
+	case states::DIG_SEEN:
 	{
 		returnStruct = state_DIG_SEEN();
 	} break;
-	case statematrix::states::LTR_SEEN:
+	case states::LTR_SEEN:
 	{
 		returnStruct = state_LTR_SEEN();
 	} break;
-	case statematrix::states::SGN_1_SEEN:
+	case states::SGN_1_SEEN:
 	{
 		returnStruct = state_SGN_1_SEEN();
 	} break;
-	case statematrix::states::SGN_2_SEEN:
+	case states::SGN_2_SEEN:
 	{
 		returnStruct = state_SGN_2_SEEN();
 	} break;
-	case statematrix::states::SGN_1_ERR:
+	case states::SGN_1_ERR:
 	{
 		returnStruct = state_SGN_1_ERR();
 	} break;
-	case statematrix::states::SGN_2_ERR:
+	case states::SGN_2_ERR:
 	{
 		returnStruct = state_SGN_2_ERR();
 	} break;
-	case statematrix::states::COMMENT_1:
+	case states::COMMENT_1:
 	{
 		returnStruct = state_COMMENT_1();
 	} break;
-	case statematrix::states::COMMENT_2:
+	case states::COMMENT_2:
 	{
 		returnStruct = state_COMMENT_2();
 	} break;
-	case statematrix::states::COMMENT_3:
+	case states::COMMENT_3:
 	{
 		returnStruct = state_COMMENT_3();
 	} break;
-	case statematrix::states::COMMENT_ERR:
+	case states::COMMENT_ERR:
 	{
 		returnStruct = state_COMMENT_ERR();
 	} break;
-	case statematrix::states::TOTAL_ERR:
+	case states::TOTAL_ERR:
 	{
 		returnStruct = state_TOTAL_ERR();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
-	case statematrix::states::INT_ID:
+	case states::INT_ID:
 	{
 		returnStruct = state_INT_ID();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
-	case statematrix::states::ID_ID:
+	case states::ID_ID:
 	{
 		returnStruct = state_ID_ID();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
-	case statematrix::states::SPCL_SGN_1_ID:
+	case states::SPCL_SGN_1_ID:
 	{
 		returnStruct = state_SPCL_SGN_1_ID();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
-	case statematrix::states::SPCL_SGN_2_ID:
+	case states::SPCL_SGN_2_ID:
 	{
 		returnStruct = state_SPCL_SGN_2_ID();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	}break;
-	case statematrix::states::SGN_ID:
+	case states::SGN_ID:
 	{
 		returnStruct = state_SGN_ID();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
-	case statematrix::states::COMMENT_END:
+	case states::COMMENT_END:
 	{
 		returnStruct = state_COMMENT_END();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	}break;
 	default:
 	{
 		returnStruct = state_TOTAL_ERR();
 		/*	empty transition	*/
-		currentState = statematrix::states::START;
+		currentState = states::START;
 	} break;
 
 	} // end switch for states
@@ -141,6 +166,14 @@ FSMstatus::status_struct FSM::state_START() {
 	else {column++;}
 	returnStruct.charsBack = 0;
 	returnStruct.returnStatus = FSMstatus::OK;
+
+	if(currentChar == '\0') {
+		returnStruct.returnStatus = FSMstatus::END_OF_FILE;
+	}
+	else if(currentChar == ' ') {
+		returnStruct.returnStatus = FSMstatus::IGNORE;
+	}
+
 	return returnStruct;
 }
 
@@ -197,7 +230,7 @@ FSMstatus::status_struct FSM::state_COMMENT_1() {
 	FSMstatus::status_struct returnStruct;
 	column++;
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::COMMENT;
+	returnStruct.returnStatus = FSMstatus::IGNORE;
 	return returnStruct;
 }
 
@@ -206,7 +239,7 @@ FSMstatus::status_struct FSM::state_COMMENT_2() {
 	if(currentChar == '\n') {row++; column = 0;}
 	else {column++;}
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::COMMENT;
+	returnStruct.returnStatus = FSMstatus::IGNORE;
 	return returnStruct;
 }
 
@@ -214,7 +247,7 @@ FSMstatus::status_struct FSM::state_COMMENT_3() {
 	FSMstatus::status_struct returnStruct;
 	column++;
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::COMMENT;
+	returnStruct.returnStatus = FSMstatus::IGNORE;
 	return returnStruct;
 }
 
@@ -313,14 +346,14 @@ bool FSM::charIsSign(const char inputChar) {
  * Prints the whole transition table out on stdout.
  */
 void FSM::printfTransTable() {
-	printf("ASCII\tSTART\tDIG_SEEN\tLTR_SEEN\tSNG_1_SEEN\tSGN_2_SEEN\tSGN_2_ERR\tCOMMENT_1\tCOMMENT_2\tCOMMENT_3\tCOMMENT_ERR\n\n");
+	printf("ASCII\tSTART\tDIG_SEEN\tLTR_SEEN\tSNG_1_SEEN\tSGN_2_SEEN\tSGN_2_ERR\tCOMMENT_1\tCOMMENT_2\tCOMMENT_3\tCOMMENT_ERR\tSIGN_1_ERR\n\n");
 
-	for(int row = 0; row < statematrix::MAX_CHARACTERS; row++) {
+	for(int row = 0; row < statematrix->MAX_CHARACTERS; row++) {
 		printf("%d\t", row);
 
-		for(int col = 0; col < statematrix::_MAX_STATES_; col++) {
-			int printState = statematrix::transitions[row][col];
-			printf("%s\t", statematrix::stateAsString((statematrix::states::type_t)printState));
+		for(int col = 0; col < statematrix->_MAX_STATES_; col++) {
+			int printState = statematrix->transitions[row][col];
+			printf("%s\t", statematrix->stateAsString((states::type_states)printState));
 
 		}
 		printf("\n");

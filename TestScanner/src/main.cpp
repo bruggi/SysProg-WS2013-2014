@@ -26,16 +26,19 @@ int main (int argc, char** argv) {
 	}
 
 	std::vector<Token*> tokenVec;
-	Token* currentToken;
+
 
 	do {
+		Token* currentToken = new Token();
 		result = scanner.getToken(*currentToken);
 		tokenVec.push_back(currentToken);
+
 
 	} while(result == ScannerError::OK);
 
 	for(size_t i = 0; i < tokenVec.size(); i++) {
 		printf("Token<%lu>\n", i);
+		delete tokenVec[i];
 	}
 
 	printf("\n\tENDE!!");

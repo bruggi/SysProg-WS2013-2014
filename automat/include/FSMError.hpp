@@ -30,7 +30,8 @@ typedef enum {
 	OK = 0,
 	NULL_POINTER = -1,
 	UNEXPECTED_STATE = -2,
-	INVALID_PARAM = -3
+	INVALID_PARAM = -3,
+	UN_DEF = -100
 
 }type_status;
 

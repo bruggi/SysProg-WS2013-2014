@@ -165,12 +165,11 @@ FSMstatus::status_struct FSM::state_START() {
 	if(currentChar == '\n') {row++; column = 0;}
 	else {column++;}
 	returnStruct.charsBack = 0;
-	returnStruct.returnStatus = FSMstatus::OK;
 
 	if(currentChar == '\0') {
 		returnStruct.returnStatus = FSMstatus::END_OF_FILE;
 	}
-	else if(currentChar == ' ') {
+	else {
 		returnStruct.returnStatus = FSMstatus::IGNORE;
 	}
 

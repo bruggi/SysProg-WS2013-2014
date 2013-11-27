@@ -5,6 +5,12 @@
  *      Author: typical
  */
 
+
+/*
+ * fehler bei ?y  und \nZ
+ *
+ */
+
 #include "../include/StateMatrix.hpp"
 
 
@@ -29,7 +35,7 @@ void StateMatrix::initStateMatrix() {
 				case states::START:			transitions[row_chars][column_states] = states::DIG_SEEN; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::DIG_SEEN; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
@@ -47,7 +53,7 @@ void StateMatrix::initStateMatrix() {
 				case states::START:			transitions[row_chars][column_states] = states::LTR_SEEN; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
@@ -71,7 +77,7 @@ void StateMatrix::initStateMatrix() {
 				case states::START:			transitions[row_chars][column_states] = states::SGN_ID; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::ID_ID; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
@@ -88,7 +94,7 @@ void StateMatrix::initStateMatrix() {
 				case states::START:			transitions[row_chars][column_states] = states::COMMENT_1; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::ID_ID; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
@@ -105,7 +111,7 @@ void StateMatrix::initStateMatrix() {
 				case states::START:			transitions[row_chars][column_states] = states::SGN_ID; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::ID_ID; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_2; break;
@@ -151,12 +157,12 @@ void StateMatrix::initStateMatrix() {
 				} // end switch
 			} // end '!' (if)
 
-			else {
+			else { // all characters which are not listed above
 				switch((states::type_states)column_states) {
 				case states::START:			transitions[row_chars][column_states] = states::START; break;
 				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
 				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::ID_ID; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_ID; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
 				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
 				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
 				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;

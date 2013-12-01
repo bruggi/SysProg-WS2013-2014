@@ -26,6 +26,7 @@ typedef enum {
 	STEP_BACK = -10,
 	IGNORE = -11,
 	END_OF_FILE = -12,
+	ERROR_TOK = -13,
 
 	OK = 0,
 	NULL_POINTER = -1,

@@ -36,7 +36,7 @@ const char* const asString(type_status status) {
 //------------------------------------------------------------------------------
 FSM::FSM() {
 	statematrix = new StateMatrix();
-	row = 0;
+	row = 1;
 	column = 0;
 	currentChar = 0;
 	currentState = states::START;
@@ -162,16 +162,31 @@ FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 /*	normal states	*/
 FSMstatus::status_struct FSM::state_START() {
 	FSMstatus::status_struct returnStruct;
-	if(currentChar == '\n') {row++; column = 0;}
-	else {column++;}
-	returnStruct.charsBack = 0;
 
-	if(currentChar == '\0') {
-		returnStruct.returnStatus = FSMstatus::END_OF_FILE;
-	}
-	else {
+	switch(currentChar) {
+	case '\n':
+	{
+		row++;
+		column = 0;
+		returnStruct.charsBack = 0;
 		returnStruct.returnStatus = FSMstatus::IGNORE;
-	}
+	} break;
+	case ' ':
+	{
+		column++;
+		returnStruct.charsBack = 0;
+		returnStruct.returnStatus = FSMstatus::IGNORE;
+	} break;
+	case '\0':
+	{
+		returnStruct.returnStatus = FSMstatus::END_OF_FILE;
+	} break;
+	default:
+	{ /*	all not accepted signs, letters, ...	*/
+		column++;
+		returnStruct.returnStatus = FSMstatus::ERROR_TOK;
+	} break;
+	} // end switch
 
 	return returnStruct;
 }

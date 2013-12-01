@@ -54,6 +54,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 
 		char tempChar = 0;
 		statemachine::FSMstatus::status_struct FSMRet;
+		FSMRet.returnStatus = statemachine::FSMstatus::UN_DEF;
 
 		buffer::bufferError::type_t bufferRet = bufferClass->getChar(tempChar);
 		if(bufferRet != buffer::bufferError::OK) {
@@ -78,8 +79,15 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::IDENTIFIER_ID:
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
+
+			/*
+			 * token_out.putIntoSymTable(char*, key_identifier); // token bekommt infoObj pointer
+			 */
 			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
 								FSMRet.currentColumn, tokentype::IDENTIFIER);
+			// statt tokentype::IDENTIFIER --> infotype->type
+
+
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
@@ -155,6 +163,23 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::IGNORE:
 		{
 			/*	a comment will be ingnored, nothing to do	*/
+		} break;
+		case statemachine::FSMstatus::ERROR_TOK:
+		{
+			/*	buffer.ungetchar() not necessary	*/
+			ScannerError::type_t ret;
+			ret = saveChar(tempChar);
+			if(ret != ScannerError::OK) {
+				return ret;
+			}
+
+			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
+								FSMRet.currentColumn, tokentype::ERROR);
+			/*	erase characterBuffer	*/
+			memset(characterBuffer, 0, BUFSIZE);
+			bufIndexer = 0;
+
+			return ScannerError::OK;
 		} break;
 		case statemachine::FSMstatus::OK:
 		{

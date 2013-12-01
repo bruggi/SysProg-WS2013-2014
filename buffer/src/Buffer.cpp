@@ -136,25 +136,14 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 	if(countChars == 0 ){
 		close(fileId);
 	}
-	if(countChars < (BUFSIZE -1)){
-		p_bufferA[countChars] = '\0'; // countChars+1?
-		 close(fileId);
-	} else if(((BUFSIZE-1)+ countChars) < (BUFSIZE * 2 -1)){
-		p_bufferB[countChars] ='\0'; //countChars+1
-		 close(fileId);
+	char* tempBuf = (char*) buffer;
+	/*	wenn buffer nicht ganz gefüllt wurde, dann setzt hinten \0 drann	*/
+	if(countChars < (BUFSIZE - 1)) {
+		/*	currentBuffer not filled completely	*/
+		tempBuf[countChars] = '\0';
+		close(fileId);
 	}
 
-//	if(countChars == 0 ){         //Schließen wenn kein Zeichen mehr da sind
-//		if(currentPos < (BUFSIZE - 1)){
-//				p_bufferA[currentPos+1] = '\0';
-//		} else if (currentPos< (BUFSIZE * 2 - 1)){
-//				p_bufferB[currentPos-BUFSIZE + 1] ='\0';
-//		} else if(currentPos == (BUFSIZE * 2 - 1)){
-//				p_bufferA[0] ='\0';
-//		}
-//	}
-//	  close(fileId);
-//	}
 
 	return bufferError::OK;
 }
@@ -174,9 +163,9 @@ bufferError::type_t Buffer::getChar(char& out_char){
 		currentPos++;
 	} else {
 		out_char = p_bufferB[currentPos - BUFSIZE];
-		if(currentPos == 1024 && (++currentPos =! '\0')){
-			currentPos = 0;
-		}
+//		if(currentPos == 1024 && (++currentPos =! '\0')){
+//			currentPos = 0;
+//		}
 		currentPos++;
 	}
 

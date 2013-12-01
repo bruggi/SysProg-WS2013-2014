@@ -39,6 +39,7 @@ typedef enum {
 
 }type_t;
 
+const char* asString(type_t t);
 } // namespace tokentype
 
 

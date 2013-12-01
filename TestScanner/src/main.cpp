@@ -31,17 +31,21 @@ int main (int argc, char** argv) {
 	do {
 		Token* currentToken = new Token();
 		result = scanner.getToken(*currentToken);
-		tokenVec.push_back(currentToken);
-
+		if(result == ScannerError::OK) {
+			tokenVec.push_back(currentToken);
+		}
 
 	} while(result == ScannerError::OK);
-
+	uint32_t valueSize;
 	for(size_t i = 0; i < tokenVec.size(); i++) {
-		printf("Token<%lu>\n", i);
+		printf("Token<%lu>\t", i);
+		printf("%s\t", tokentype::asString(tokenVec[i]->getType()));
+		printf("Line: %u Column : %u\t", tokenVec[i]->getRow(), tokenVec[i]->getColumn());
+		printf("Value: %s\n", tokenVec[i]->getValue(valueSize));
 		delete tokenVec[i];
 	}
 
-	printf("\n\tENDE!!");
+	printf("\n\tENDE!!\n");
 
 	return 0;
 }

@@ -6,11 +6,6 @@
  */
 
 
-/*
- * fehler bei ?y  und \nZ
- *
- */
-
 #include "../include/StateMatrix.hpp"
 
 
@@ -29,44 +24,8 @@ void StateMatrix::initStateMatrix() {
 	for(int row_chars = 0; row_chars < MAX_CHARACTERS; row_chars++) {
 		for(int column_states = 0; column_states < _MAX_STATES_; column_states++) {
 
-			/*	ASCII for digits	*/
-			if(row_chars > 47 && row_chars < 58) {
-				switch((states::type_states)column_states) {
-				case states::START:			transitions[row_chars][column_states] = states::DIG_SEEN; break;
-				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::DIG_SEEN; break;
-				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
-				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
-				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
-				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
-				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
-				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				} // end switch
-			} // end digits (if)
-
-			/*	ASCII for letters	*/
-			else if(row_chars > 64 && row_chars < 123) {
-				switch((states::type_states)column_states) {
-				case states::START:			transitions[row_chars][column_states] = states::LTR_SEEN; break;
-				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
-				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
-				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
-				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
-				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
-				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
-				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
-				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
-				} // end switch
-			} // end letters (if)
-
 			/*	all not important signs		*/
-			else if((row_chars == '+') || (row_chars == '-') ||
+			if((row_chars == '+') || (row_chars == '-') ||
 					(row_chars == '<') || (row_chars == '>') ||
 					(row_chars == '&') || (row_chars == ';') ||
 					(row_chars == '(') || (row_chars == ')') ||
@@ -157,6 +116,42 @@ void StateMatrix::initStateMatrix() {
 				} // end switch
 			} // end '!' (if)
 
+			/*	ASCII for digits	*/
+			else if(row_chars > 47 && row_chars < 58) {
+				switch((states::type_states)column_states) {
+				case states::START:			transitions[row_chars][column_states] = states::DIG_SEEN; break;
+				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::DIG_SEEN; break;
+				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
+				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
+				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
+				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
+				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
+				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				} // end switch
+			} // end digits (if)
+
+			/*	ASCII for letters	*/
+			else if((row_chars > 64 && row_chars < 91) || 		// upper case letters
+					(row_chars > 96 && row_chars < 123)) {		// lower case letters
+				switch((states::type_states)column_states) {
+				case states::START:			transitions[row_chars][column_states] = states::LTR_SEEN; break;
+				case states::DIG_SEEN:		transitions[row_chars][column_states] = states::INT_ID; break;
+				case states::LTR_SEEN:		transitions[row_chars][column_states] = states::LTR_SEEN; break;
+				case states::SGN_1_SEEN:	transitions[row_chars][column_states] = states::SGN_1_ERR; break;
+				case states::SGN_2_SEEN:	transitions[row_chars][column_states] = states::SGN_2_ERR; break;
+				case states::SGN_2_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::COMMENT_1:		transitions[row_chars][column_states] = states::COMMENT_ERR; break;
+				case states::COMMENT_2:		transitions[row_chars][column_states] = states::COMMENT_2; break;
+				case states::COMMENT_3:		transitions[row_chars][column_states] = states::COMMENT_2; break;
+				case states::COMMENT_ERR:	transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				case states::SGN_1_ERR:		transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				default:			transitions[row_chars][column_states] = states::TOTAL_ERR; break;
+				} // end switch
+			} // end letters (if)
 			else { // all characters which are not listed above
 				switch((states::type_states)column_states) {
 				case states::START:			transitions[row_chars][column_states] = states::START; break;

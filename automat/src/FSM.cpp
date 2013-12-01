@@ -181,6 +181,12 @@ FSMstatus::status_struct FSM::state_START() {
 	{
 		returnStruct.returnStatus = FSMstatus::END_OF_FILE;
 	} break;
+	case '\t':
+	{
+		column++;
+		returnStruct.charsBack = 0;
+		returnStruct.returnStatus = FSMstatus::IGNORE;
+	} break;
 	default:
 	{ /*	all not accepted signs, letters, ...	*/
 		column++;

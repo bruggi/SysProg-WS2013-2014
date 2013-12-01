@@ -33,7 +33,7 @@ const char* asString(type_t t) {
 	case KEY_BANG:				return "Not\t\t";
 	case KEY_BRAKET_ARRW_OPEN:	return "Arrow bracket open";
 	case KEY_BRAKET_ARRW_CLOSE:	return "Arrow bracket close";
-	case KEY_AMPERSAND:			return "Ampersand\t\t";
+	case KEY_AMPERSAND:			return "Ampersand\t";
 	case KEY_COMPARE:			return "Compare\t\t";
 	case KEY_COMPARE_NOT:		return "Compare Not\t";
 	default:					return "UNDEFINED\t";

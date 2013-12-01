@@ -44,10 +44,7 @@ public:
 			ListElement<type>* nLE = new ListElement<type> (element, last);
 			last->next = nLE;
 
-
 			last = nLE;
-
-
 			//last->setPrev(tmp);
 		}
 		elements++;
@@ -71,7 +68,7 @@ public:
 		if (tmp == NULL) {
 			cout << "Wert konnte nicht gelöscht werden" << endl;
 			return false;
-		}else if(tmp->getPairObject() == this->first->getPairObject() && tmp->getPairObject() == this->last->getPairObject()) { //hier der fehler?
+		}else if(tmp->getPairObject() == this->first->getPairObject() && tmp->getPairObject() == this->last->getPairObject()) {
 			delete[] tmp;
 			first = last = NULL;
 			elements--;
@@ -86,7 +83,7 @@ public:
 			delete[] tmp;
 			elements--;
 		} else {
-
+			cerr << "This should'nt happen!1!";
 		}
 		return true;
 	}

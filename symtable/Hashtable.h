@@ -52,10 +52,15 @@ class Hashtable {
 	/**
 	 * Sucht nach einem Pair-Objekt und gibt falls vorhanden den daraufzeigenden Iterator zurück
 	 */
-	ListElement<Pair<type> >* getIterator(unsigned char* key) {
-		ListElement<Pair<type> >* listIterator = table[hashcode(key) % size].begin();
+	ListElement<Pair<type> >* getIterator(const char* key) {
+
+		//mit memcopy speicher kopieren und malloc allozieren und const char nach unsigned char kopieren und diesen verwenden
+		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+		memcpy(unsignedKey,key,strlen(key)+1);
+
+		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
-			while (listIterator != table[hashcode(key) % size].end()) {
+			while (listIterator != table[hashcode(unsignedKey) % size].end()) {
 				if (key == listIterator->key) {
 					return listIterator;
 				}
@@ -109,9 +114,9 @@ public:
 	}
 
 	/**
-	 * Gibt zu einem übergebenen key den value zurück falls das Pair-Objekt vorhanden ist
+	 * Gibt den Pointer auf das Pair-Objekt zurück, falldas Objekt vorhanden ist
 	 */
-	type get(const char* key) {
+	Pair<type>* get(const char* key) {
 
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
 		memcpy(unsignedKey,key,strlen(key)+1);
@@ -120,18 +125,18 @@ public:
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			for (unsigned long i =0;i<table[hashcode(unsignedKey) % size].size();i++) {
 				if (key == listIterator->getPairObject()->key) {
-					cout << "gesuchte Parameter: " << listIterator->getPairObject()->key << " "
-							<< listIterator->getPairObject()->value << endl;
-					return listIterator->getPairObject()->value;
+					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
+							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
+					return listIterator->getPairObject();
 				}
 				listIterator = listIterator->getNext();
 			}
 		}
-		return (type) -1;
+		return (0);
 	}
 
 	/**
-	 * Löscht das Pair-Objekt mit dem key falls es vorhanden ist
+	 * Löscht das Pair-Objekt mit dem key falls es vorhanden ist. Wird vermutlich nicht benötigt!
 	 */
 	bool remove(const char* key) {
 
@@ -159,6 +164,10 @@ public:
 	bool contains(const char* key) {
 
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+//		if(unsignedKey==0){
+//			cerr << "malloc failed" << endl;
+//			exit(0);
+//		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();

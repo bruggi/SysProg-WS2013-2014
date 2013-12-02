@@ -17,8 +17,6 @@ OBJ_DIR = Debug
 LIB_DIR = lib
 BIN_DIR = Debug
 
-INCLUDES = -I
-#LIBS = -L/usr/blub/lib -lblub
 OBJECTS = $(OBJ_DIR)/Buffer.o
 
 .PHONY : clean all
@@ -26,17 +24,17 @@ OBJECTS = $(OBJ_DIR)/Buffer.o
 all: clean $(LIB_DIR)/libbuffer.a
 
 ###
-# compile automat
+# compile buffer
 #
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
 	@echo "compile buffer"
 	@echo "g++ $*.cpp"
-	$(CC) $(CFLAGS) -c -o $@  $<
+	$(CC) $(CFLAGS) -c -fPIC -o $@  $<
 
 ###
-# link static library
+# link shared library
 #
-$(LIB_DIR)/libbuffer.a : $(OBJECTS)
+$(LIB_DIR)/libbuffer.a: $(OBJECTS)
 	@echo "link buffer"
 	ar rcs $@ $^
 	
@@ -46,7 +44,7 @@ $(LIB_DIR)/libbuffer.a : $(OBJECTS)
 clean:
 	@echo "clean buffer"
 	rm -rf Debug/*
-	rm -rf lib/*
+	rm -rf $(LIB_DIR)/*
 	
 
 

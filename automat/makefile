@@ -17,9 +17,7 @@ OBJ_DIR = Debug
 LIB_DIR = lib
 BIN_DIR = Debug
 
-INCLUDES = -I
-#LIBS = -L/usr/blub/lib -lblub
-OBJECTS = $(OBJ_DIR)/FSM.o
+OBJECTS = $(OBJ_DIR)/FSM.o $(OBJ_DIR)/StateMatrix.o
 
 .PHONY : clean all
 
@@ -31,12 +29,12 @@ all: clean $(LIB_DIR)/libautomat.a
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
 	@echo "compile automat"
 	@echo "g++ $*.cpp"
-	$(CC) $(CFLAGS) -c -o $@  $<
+	$(CC) $(CFLAGS) -c -fPIC -o $@  $<
 
 ###
-# link static library
+# link shared library
 #
-$(LIB_DIR)/libautomat.a : $(OBJECTS)
+$(LIB_DIR)/libautomat.a: $(OBJECTS)
 	@echo "link automat"
 	ar rcs $@ $^
 	
@@ -45,8 +43,8 @@ $(LIB_DIR)/libautomat.a : $(OBJECTS)
 #
 clean:
 	@echo "clean automat"
-	rm -rf Debug/*
-	rm -rf lib/*
+	rm -rf $(OBJ_DIR)/*
+	rm -rf $(LIB_DIR)/*
 	
 
 

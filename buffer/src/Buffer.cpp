@@ -19,9 +19,38 @@ Buffer::Buffer() {
 	currentPos = 0;
 	actualBuffer = 0;
 	fileId = 0;
-
 }
 
+/*
+* Öffnet Datei. Ruft fillBuffer() auf.
+* Gibt Fehler aus falls Datei nicht geöffnet werden kann.
+*/
+bufferError::type_t Buffer::openFile(const char* path){
+
+	if(path == NULL) {
+		return bufferError::NULL_POINTER;
+	}
+
+	fileId = open(path , O_DIRECT | O_RDONLY);
+
+	if(fileId == -1){
+		return bufferError::OPEN_ERR;
+	}
+
+	bufferError::type_t ret;
+
+	ret = fillBuffer(bufferA);
+	if(ret != bufferError::OK) {
+		return ret;
+	}
+
+	ret = fillBuffer(bufferB);
+	if(ret != bufferError::OK) {
+		return ret;
+	}
+
+	return bufferError::OK;
+}
 
 /*
 *        Speicher wird für BufferA und bufferB allokiert.
@@ -62,37 +91,6 @@ bufferError::type_t Buffer::initBuffer(const char* path){
 }
 
 /*
-* Öffnet Datei. Ruft fillBuffer() auf.
-* Gibt Fehler aus falls Datei nicht geöffnet werden kann.
-*/
-bufferError::type_t Buffer::openFile(const char* path){
-
-	if(path == NULL) {
-		return bufferError::NULL_POINTER;
-	}
-
-	fileId = open(path , O_DIRECT | O_RDONLY);
-
-	if(fileId == -1){
-		return bufferError::OPEN_ERR;
-	}
-
-	bufferError::type_t ret;
-
-	ret = fillBuffer(bufferA);
-	if(ret != bufferError::OK) {
-		return ret;
-	}
-
-	ret = fillBuffer(bufferB);
-	if(ret != bufferError::OK) {
-		return ret;
-	}
-
-	return bufferError::OK;
-}
-
-/*
 * Wechselt Buffer, wenn 512 Zeichen eingelesen sind.
 */
 bufferError::type_t Buffer::switchBuffer(){
@@ -118,6 +116,7 @@ bufferError::type_t Buffer::switchBuffer(){
 //                fillBuffer(bufferA);
 //                actualBuffer = 0;
 //        }
+
 	return bufferError::OK;
 }
 
@@ -134,17 +133,17 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 	}
 	countChars = read(fileId, buffer, BUFSIZE);
 
-	if(countChars == 0 ){         //Schließen wenn kein Zeichen mehr da sind
-		if(currentPos < (BUFSIZE - 1)){
-				p_bufferA[currentPos+1] = '\0';
-		} else if (currentPos< (BUFSIZE * 2 - 1)){
-				p_bufferB[currentPos-BUFSIZE + 1] ='\0';
-		} else if(currentPos == (BUFSIZE * 2 - 1)){
-				p_bufferA[0] ='\0';
-		}
-
-	  close(fileId);
+	if(countChars == 0 ){
+		close(fileId);
 	}
+	char* tempBuf = (char*) buffer;
+	/*	wenn buffer nicht ganz gefüllt wurde, dann setzt hinten \0 drann	*/
+	if(countChars < (BUFSIZE - 1)) {
+		/*	currentBuffer not filled completely	*/
+		tempBuf[countChars] = '\0';
+		close(fileId);
+	}
+
 
 	return bufferError::OK;
 }
@@ -164,6 +163,9 @@ bufferError::type_t Buffer::getChar(char& out_char){
 		currentPos++;
 	} else {
 		out_char = p_bufferB[currentPos - BUFSIZE];
+//		if(currentPos == 1024 && (++currentPos =! '\0')){
+//			currentPos = 0;
+//		}
 		currentPos++;
 	}
 

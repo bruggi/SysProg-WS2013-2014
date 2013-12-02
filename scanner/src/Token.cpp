@@ -6,6 +6,41 @@
  */
 
 #include "../include/Token.hpp"
+#include <string.h>
+
+
+namespace tokentype {
+const char* asString(type_t t) {
+	switch(t) {
+	case INTEGER:				return "Integer\t\t";
+	case IDENTIFIER:			return "Identifier\t";
+	case ERROR:					return "Error\t\t";
+	case UNDEFINED:				return "UNDEFINED\t";
+	case KEY_IF:				return "IF\t\t";
+	case KEY_WHILE:				return "WHILE\t\t";
+	case KEY_PLUS:				return "Plus\t\t";
+	case KEY_MINUS:				return "Minus\t\t";
+	case KEY_SLASH:				return "Slash\t\t";
+	case KEY_STAR:				return "Star\t\t";
+	case KEY_SEMICOLON:			return "Semicolon\t";
+	case KEY_BRAKET_RND_OPEN:	return "Round bracket open";
+	case KEY_BRAKET_RND_CLOSE:	return "Round bracket close";
+	case KEY_BRAKET_SQR_OPEN:	return "Square bracket open";
+	case KEY_BRAKET_SQR_CLOSE:	return "Square bracket close";
+	case KEY_BRAKET_CLY_OPEN:	return "Clay bracket open";
+	case KEY_BRAKET_CLY_CLOSE:	return "Clay bracket close";
+	case KEY_EQUAL:				return "Assign\t\t";
+	case KEY_BANG:				return "Not\t\t";
+	case KEY_BRAKET_ARRW_OPEN:	return "Arrow bracket open";
+	case KEY_BRAKET_ARRW_CLOSE:	return "Arrow bracket close";
+	case KEY_AMPERSAND:			return "Ampersand\t";
+	case KEY_COMPARE:			return "Compare\t\t";
+	case KEY_COMPARE_NOT:		return "Compare Not\t";
+	default:					return "UNDEFINED\t";
+	} // end switch
+	return "UNDEFINED";
+}
+} // namesoace tokentype
 
 
 Token::Token() {

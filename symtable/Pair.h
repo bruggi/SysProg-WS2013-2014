@@ -8,7 +8,7 @@
 #ifndef PAIR_H_
 #define PAIR_H_
 
-#include<string>
+//#include<string>
 
 using namespace std;
 
@@ -16,13 +16,13 @@ template<class type>
 class Pair {
 
 public:
-	string key;
+	const char* key;
 	type value;
 	Pair(){
 		this->key = "";
 		this->value=(type)0;
 	}
-	Pair(string key, type value){
+	Pair(const char* key, type value){
 		this->key = key;
 		this->value = value;
 	}

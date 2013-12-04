@@ -48,7 +48,7 @@ public:
 
     type *getPairObject() const
     {
-        return pairObject; //segmentation fault am ende von remove()
+        return pairObject;
     }
 
     void setNext(ListElement<type> *next)

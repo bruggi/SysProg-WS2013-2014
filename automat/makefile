@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) -c -fPIC -o $@  $<
 
 ###
-# link shared library
+# link static library
 #
 $(LIB_DIR)/libautomat.a: $(OBJECTS)
 	@echo "link automat"

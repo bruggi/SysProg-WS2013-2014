@@ -17,7 +17,7 @@ Buffer::Buffer() {
 	p_bufferB = NULL;
 
 	currentPos = 0;
-	actualBuffer = 0;
+	wasFilled = false;
 	fileId = 0;
 }
 
@@ -44,11 +44,6 @@ bufferError::type_t Buffer::openFile(const char* path){
 		return ret;
 	}
 
-	ret = fillBuffer(bufferB);
-	if(ret != bufferError::OK) {
-		return ret;
-	}
-
 	return bufferError::OK;
 }
 
@@ -67,12 +62,12 @@ bufferError::type_t Buffer::initBuffer(const char* path){
 	}
 
 	int ret;
-	ret = posix_memalign( &bufferA, getpagesize(), BUFSIZE);
+	ret = posix_memalign( &bufferA, getpagesize(), BUFSIZE + 1); // +1, for secured \0 adding
 	if(ret != 0) {
 		return bufferError::ALLOC_ERR;
 	}
 
-	ret = posix_memalign( &bufferB, getpagesize(),BUFSIZE);
+	ret = posix_memalign( &bufferB, getpagesize(),BUFSIZE + 1); // +1, for secured \0 adding
 	if(ret != 0) {
 		return bufferError::ALLOC_ERR;
 	}
@@ -88,36 +83,6 @@ bufferError::type_t Buffer::initBuffer(const char* path){
 
 	return bufferError::OK;
 
-}
-
-/*
-* Wechselt Buffer, wenn 512 Zeichen eingelesen sind.
-*/
-bufferError::type_t Buffer::switchBuffer(){
-
-	if(currentPos == (BUFSIZE * 2 - 1)){
-		currentPos = 0;
-		bufferError::type_t ret = fillBuffer(bufferA);
-		if(ret != bufferError::OK) {
-			return ret;
-		}
-	}else if (currentPos == (BUFSIZE - 1)){
-		bufferError::type_t ret = fillBuffer(bufferB);
-		if(ret != bufferError::OK) {
-			return ret;
-		}
-	}
-
-//        if(actualBuffer == 0){
-//                fillBuffer(bufferB);
-//                actualBuffer = 1;
-//
-//        }else if (actualBuffer == 1){
-//                fillBuffer(bufferA);
-//                actualBuffer = 0;
-//        }
-
-	return bufferError::OK;
 }
 
 /*
@@ -140,11 +105,11 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 	/*	wenn buffer nicht ganz gefüllt wurde, dann setzt hinten \0 drann	*/
 	if(countChars < (BUFSIZE - 1)) {
 		/*	currentBuffer not filled completely	*/
-		tempBuf[countChars] = '\0';
+		tempBuf[countChars + 1] = '\0';
 		close(fileId);
 	}
 
-
+	wasFilled = true;
 	return bufferError::OK;
 }
 
@@ -154,25 +119,21 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 */
 bufferError::type_t Buffer::getChar(char& out_char){
 
-	if((p_bufferA[currentPos] == '\0') || (p_bufferB[currentPos] == '\0')) {
-		out_char = '\0';
+	char* tempBuffer = NULL;
+	int offset;
+	bufferError::type_t result;
+
+	result = getCurrentBuffer(tempBuffer, offset);
+	if(result != bufferError::OK) {
+		return result;
+	}
+	if(tempBuffer == NULL) {
+		return bufferError::NULL_POINTER;
 	}
 
-	if(currentPos < BUFSIZE){
-		out_char = p_bufferA[currentPos];
-		currentPos++;
-	} else {
-		out_char = p_bufferB[currentPos - BUFSIZE];
-//		if(currentPos == 1024 && (++currentPos =! '\0')){
-//			currentPos = 0;
-//		}
-		currentPos++;
-	}
+	out_char = tempBuffer[currentPos - offset];
+	currentPos++;
 
-	bufferError::type_t ret = switchBuffer();
-	if(ret != bufferError::OK) {
-		return ret;
-	}
 
 	return bufferError::OK;
 }
@@ -187,13 +148,64 @@ void Buffer::ungetChar(size_t stepsBack){
 
 	for (int i = stepsBack; i > 0; i--) {
 		if(currentPos == 0){
-				currentPos = (BUFSIZE * 2 - 1);
-				currentPos -= 1;
+			currentPos = (BUFSIZE * 2 - 1);
+			currentPos -= 1;
 		}else {
-				currentPos-= 1;
+			currentPos-= 1;
 
 		}
 	}
+}
+
+bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) {
+
+	bufferError::type_t result;
+
+	if(currentPos == BUFSIZE) {
+		/*	switch to B	and fill it	*/
+		if(!wasFilled) {
+			result = fillBuffer(bufferB);
+			if(result != bufferError::OK) {
+				return result;
+			}
+			currentBuffer = p_bufferB;
+			offset = BUFSIZE;
+		}
+
+	}
+	else if (currentPos == BUFSIZE * 2) {
+		/*	switch to A and fill it	*/
+		if(!wasFilled) {
+			result = fillBuffer(bufferA);
+			if(result != bufferError::OK) {
+				return result;
+			}
+			currentBuffer = p_bufferA;
+			currentPos = 0;
+			offset = 0;
+		}
+	}
+
+	/*	nothing to switch	*/
+	if((currentPos >= 0) && (currentPos < BUFSIZE)) {
+		/*	buffer A	*/
+		currentBuffer = p_bufferA;
+		offset = 0;
+	}
+	else if((currentPos >= BUFSIZE) && (currentPos < BUFSIZE * 2 )) {
+		/*	buffer B	*/
+		currentBuffer = p_bufferB;
+		offset = BUFSIZE;
+	}
+
+	/*	to fix fillBuffer bug if currentPos = 512 before and after an ungetchar()	*/
+	/*	boolean is reset in enough range so that ungetchar() woun't get us into this	*/
+	if(currentPos == 500 || currentPos == 800) {
+		wasFilled = false;
+	}
+
+	return bufferError::OK;
+
 }
 
 

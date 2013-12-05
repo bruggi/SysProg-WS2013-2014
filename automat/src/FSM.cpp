@@ -11,6 +11,12 @@ namespace statemachine {
 
 namespace FSMstatus {
 
+/**
+ * Returns the status of the statemachine as human readable string.
+ * @param status		the given statemachine status to convert to string.
+ *
+ * @return				the status as string.
+ */
 const char* const asString(type_status status) {
 	switch(status) {
 	case INTEGER_ID:			return "Integer identified"; break;
@@ -34,6 +40,10 @@ const char* const asString(type_status status) {
 }//end namespace FSMstatus
 
 //------------------------------------------------------------------------------
+
+/**
+ * Creates an new statemachine object and initializes it.
+ */
 FSM::FSM() {
 	statematrix = new StateMatrix();
 	row = 1;
@@ -46,6 +56,19 @@ FSM::~FSM() {
 
 }
 
+/**
+ * Validates the given character. With every call, the statemachine goes one
+ * step forward.
+ *
+ * @param inputChar		the character to validate.
+ *
+ * @return			A status struct with information:
+ * 					status: 		the return status of the statemachine.
+ * 					row:			the current row.
+ * 					column:			the current column.
+ * 					charactersBack:	the amount of characters to move back.
+ *
+ */
 FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 
 	FSMstatus::status_struct returnStruct;
@@ -159,7 +182,12 @@ FSMstatus::status_struct FSM::validateChar(const char inputChar) {
 }
 
 
-/*	normal states	*/
+/**
+ * Start state.
+ * ' ', '\n', '\t' will be ignored.
+ * '\0' give an EOF status back.
+ * all other characters creates an ERROR token.
+ */
 FSMstatus::status_struct FSM::state_START() {
 	FSMstatus::status_struct returnStruct;
 

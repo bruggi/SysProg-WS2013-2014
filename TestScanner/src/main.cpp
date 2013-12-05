@@ -27,13 +27,17 @@ int main (int argc, char** argv) {
 
 	std::vector<Token*> tokenVec;
 
-
+	int debugCounter = 0;	// for debug, stands for the amount of tokens
 	do {
+		if(debugCounter == 205) {
+			debugCounter++;
+		}
 		Token* currentToken = new Token();
 		result = scanner.getToken(*currentToken);
 		if(result == ScannerError::OK) {
 			tokenVec.push_back(currentToken);
 		}
+		debugCounter++;
 
 	} while(result == ScannerError::OK);
 	uint32_t valueSize;

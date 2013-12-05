@@ -41,7 +41,7 @@ private:
 	char* p_bufferB;
 	size_t currentPos;
 	int fileId;
-	int actualBuffer; // 0 = BufferA, 1=BufferB
+	bool wasFilled;
 
 	size_t countChars;        //kann minus wert zurückgeben
 	size_t counter;           //Zählt bis zu Bufferende
@@ -49,8 +49,9 @@ private:
 	static const size_t BUFSIZE  = 512;
 
 	bufferError::type_t openFile(const char* path);
-	bufferError::type_t switchBuffer();
 	bufferError::type_t fillBuffer(void* buffer);
+
+	bufferError::type_t getCurrentBuffer(char*& currentBuffer, int& offset);
 
 public:
 	Buffer();

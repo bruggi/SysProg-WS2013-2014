@@ -95,20 +95,19 @@ public:
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
 		memcpy(unsignedKey,key,strlen(key)+1);
 
-		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
+//		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (!contains(key)) {
 			table[hashcode(unsignedKey) % size].push_back(new Pair<type> (key, value));
-
 			cout << "angelegt" << endl;
-			return false;
+			return true;
 		} else { //wert schon vorhanden, value überschreiben
-			for (unsigned long i=0; i< table[hashcode(unsignedKey) % size].size();i++) {
-				if (key == listIterator->getPairObject()->key) {
-					listIterator->getPairObject()->value = value;
-					cout << "ueberschrieben" << endl;
+//			for (unsigned long i=0; i< table[hashcode(unsignedKey) % size].size();i++) {
+//				if (key == listIterator->getPairObject()->key) {
+//				listIterator->getPairObject()->value = value;
+					cout << "schon vorhanden" << endl;
 					return true;
-				}
-			}
+//				}
+//			}
 		}
 		return false;
 	}
@@ -123,7 +122,7 @@ public:
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
-			for (unsigned long i =0;i<table[hashcode(unsignedKey) % size].size();i++) {
+			for (int i=0;i<table[hashcode(unsignedKey) % size].size();i++) {
 				if (key == listIterator->getPairObject()->key) {
 					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
 							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
@@ -171,7 +170,7 @@ public:
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
-		for (unsigned long i = 0; i < table[hashcode(unsignedKey) % size].size(); i++) {
+		for (int i = 0; i < table[hashcode(unsignedKey) % size].size(); i++) {
 			if (key == listIterator->getPairObject()->key) {
 				return true;
 			}

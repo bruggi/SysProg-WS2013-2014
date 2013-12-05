@@ -9,6 +9,7 @@
 #define LIST_H_
 
 #include "ListElement.h"
+#include<iostream>
 using namespace std;
 
 template<class type>

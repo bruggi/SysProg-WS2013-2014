@@ -56,16 +56,22 @@ class Hashtable {
 
 		//mit memcopy speicher kopieren und malloc allozieren und const char nach unsigned char kopieren und diesen verwenden
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+		if(unsignedKey == NULL){
+			cerr << "malloc failed" << endl;
+			exit(0);
+		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			while (listIterator != table[hashcode(unsignedKey) % size].end()) {
 				if (key == listIterator->key) {
+					delete unsignedKey;
 					return listIterator;
 				}
 			}
 		}
+	delete unsignedKey;
 	return (NULL);
 	}
 
@@ -93,22 +99,29 @@ public:
 
 		//mit memcopy speicher kopieren und malloc allozieren und const char nach unsigned char kopieren und diesen verwenden
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+		if(unsignedKey == NULL){
+			cerr << "malloc failed" << endl;
+			exit(0);
+		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 //		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (!contains(key)) {
 			table[hashcode(unsignedKey) % size].push_back(new Pair<type> (key, value));
 			cout << "angelegt" << endl;
+			delete unsignedKey;
 			return true;
 		} else { //wert schon vorhanden, value überschreiben
 //			for (unsigned long i=0; i< table[hashcode(unsignedKey) % size].size();i++) {
 //				if (key == listIterator->getPairObject()->key) {
 //				listIterator->getPairObject()->value = value;
 					cout << "schon vorhanden" << endl;
+					delete unsignedKey;
 					return true;
 //				}
 //			}
 		}
+		delete unsignedKey;
 		return false;
 	}
 
@@ -118,6 +131,10 @@ public:
 	Pair<type>* get(const char* key) {
 
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+		if(unsignedKey == NULL){
+			cerr << "malloc failed" << endl;
+			exit(0);
+		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
@@ -126,11 +143,13 @@ public:
 				if (key == listIterator->getPairObject()->key) {
 					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
 							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
+					delete unsignedKey;
 					return listIterator->getPairObject();
 				}
 				listIterator = listIterator->getNext();
 			}
 		}
+		delete unsignedKey;
 		return (0);
 	}
 
@@ -140,6 +159,10 @@ public:
 	bool remove(const char* key) {
 
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
+		if(unsignedKey == NULL){
+			cerr << "malloc failed" << endl;
+			exit(0);
+		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
@@ -148,12 +171,13 @@ public:
 				if (key == listIterator->getPairObject()->key) {
 					table[hashcode(unsignedKey) % size].erase(listIterator); //löscht den gesuchten Wert aus der liste
 					cout << "gelöscht" << endl;
-
+					delete unsignedKey;
 					return (!contains(key));
 				}
 				listIterator = listIterator->getNext();
 			}
 		}
+		delete unsignedKey;
 		return (!contains(key));
 	}
 
@@ -163,19 +187,21 @@ public:
 	bool contains(const char* key) {
 
 		unsigned char* unsignedKey = (unsigned char*)malloc((strlen(key)+1) * sizeof(unsigned char));
-//		if(unsignedKey==0){
-//			cerr << "malloc failed" << endl;
-//			exit(0);
-//		}
+		if(unsignedKey == NULL){
+			cerr << "malloc failed" << endl;
+			exit(0);
+		}
 		memcpy(unsignedKey,key,strlen(key)+1);
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		for (int i = 0; i < table[hashcode(unsignedKey) % size].size(); i++) {
 			if (key == listIterator->getPairObject()->key) {
+				delete unsignedKey;
 				return true;
 			}
 			listIterator = listIterator->getNext();
 		}
+		delete unsignedKey;
 		return false;
 	}
 

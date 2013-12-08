@@ -16,7 +16,7 @@ AUTOMAT_DIR = ../automat
 BUFFER_DIR = ../buffer
 
 OBJECTS = $(OBJ_DIR)/Symtable.o
-INCLUDES = -I$(SCANNER_DIR)/include -I$(AUTOMAT_DIR)/include -I$(BUFFER_DIR)/scr
+INCLUDES = -I$(SCANNER_DIR)/include -I$(AUTOMAT_DIR)/include -I$(BUFFER_DIR)/src
 
 .PHONY : clean all
 

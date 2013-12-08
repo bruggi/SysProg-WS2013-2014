@@ -26,29 +26,22 @@ int main (int argc, char** argv) {
 		printf("Scanner init error <%d>!\n", result);
 	}
 
-	std::vector<Token*> tokenVec;
 
-	int debugCounter = 0;	// for debug, stands for the amount of tokens
+	int counter = 0;	// for debug, stands for the amount of tokens
 	do {
-		if(debugCounter == 205) {
-			debugCounter++;
+		if(counter == 205) {
+			counter++;
 		}
 		Token* currentToken = new Token();
 		result = scanner.getToken(*currentToken);
 		if(result == ScannerError::OK) {
-			tokenVec.push_back(currentToken);
+
+			printf("Token<%d>\t", counter);
+			printContent(currentToken);
 		}
-		debugCounter++;
+		counter++;
 
 	} while(result == ScannerError::OK);
-
-	for(size_t i = 0; i < tokenVec.size(); i++) {
-		printf("Token<%lu>\t", i);
-
-		printContent(tokenVec[i]);
-
-		delete tokenVec[i];
-	}
 
 	printf("\n\tENDE!!\n");
 

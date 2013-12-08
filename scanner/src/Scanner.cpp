@@ -52,6 +52,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		return ScannerError::SCANNER_NOT_INIT;
 	}
 
+	infoPtr_t info;
 
 	while(1) {
 
@@ -87,7 +88,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
 
-			infoPtr_t info;
+
 			info = symtable->insert(characterBuffer, tokentype::IDENTIFIER);
 
 			if(!token_out.generateID(info, FSMRet.currentRow, FSMRet.currentColumn)) {
@@ -185,7 +186,6 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ret;
 			}
 
-			infoPtr_t info;
 			info = symtable->insert(characterBuffer, tokentype::ERROR);
 
 			if(!token_out.generateERROR(info, FSMRet.currentRow, FSMRet.currentColumn)) {

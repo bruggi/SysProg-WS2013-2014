@@ -65,7 +65,7 @@ class Hashtable {
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			while (listIterator != table[hashcode(unsignedKey) % size].end()) {
-				if (key == listIterator->key) {
+				if (strcmp(key, listIterator->key) == 0) {
 					delete unsignedKey;
 					return listIterator;
 				}
@@ -140,7 +140,8 @@ public:
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			for (int i=0;i<table[hashcode(unsignedKey) % size].size();i++) {
-				if (key == listIterator->getPairObject()->key) {
+				/*	strcmp; not with == !!!	*/
+				if (strcmp(key, listIterator->getPairObject()->key) == 0) {
 //					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
 //							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
 					delete unsignedKey;
@@ -168,7 +169,7 @@ public:
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			for (unsigned long i = 0;i < table[hashcode(unsignedKey) % size].size();i++) {
-				if (key == listIterator->getPairObject()->key) {
+				if (strcmp(key, listIterator->getPairObject()->key) == 0) {
 					table[hashcode(unsignedKey) % size].erase(listIterator); //löscht den gesuchten Wert aus der liste
 //					cout << "gelöscht" << endl;
 					delete unsignedKey;
@@ -195,7 +196,8 @@ public:
 
 		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		for (int i = 0; i < table[hashcode(unsignedKey) % size].size(); i++) {
-			if (key == listIterator->getPairObject()->key) {
+			/*	strcmp; not with == !!!	*/
+			if (strcmp(key,  listIterator->getPairObject()->key) == 0) {
 				delete unsignedKey;
 				return true;
 			}

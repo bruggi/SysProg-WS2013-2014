@@ -209,9 +209,9 @@ public:
 		cout << "dump" << endl;
 		for(unsigned long i = 0; i  < size; i++) {
 			if(table[i].size() > 0){
-				cout << i << ": ";
+//				cout << i << ": ";
 				for(unsigned long j = 0; j < table[i].size(); j++) {
-				cout << table[i].get(j)->getPairObject()->key << " " << table[i].get(j)->getPairObject()->value << "\n";
+//				cout << table[i].get(j)->getPairObject()->key << " " << table[i].get(j)->getPairObject()->value << "\n";
 				}
 			cout << "\n";
 			}

@@ -19,6 +19,7 @@ typedef enum {
 	BUFFER_READ_ERR = -5,
 	EOF_REACHED = -6,
 	TMP_BUF_TOO_SMALL = -7,
+	TOKEN_GEN_ERR = -8,
 	FATAL_FSM_ERR = -99
 
 }type_t;

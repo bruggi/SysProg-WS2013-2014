@@ -6,21 +6,22 @@
  */
 
 #include <Scanner.hpp>
+#include <Symtable.h>
 #include <stdio.h>
 
 #include <vector>
 
+void printContent(Token* token);
+
 int main (int argc, char** argv) {
-
-
-
 
 	Scanner scanner;
 	ScannerError::type_t result;
+	Symtable* symtable = new Symtable();
 
 	printf("Input: %s\n", argv[1]);
 
-	result = scanner.init(argv[1]);
+	result = scanner.init(argv[1], symtable);
 	if(result != ScannerError::OK) {
 		printf("Scanner init error <%d>!\n", result);
 	}
@@ -40,12 +41,12 @@ int main (int argc, char** argv) {
 		debugCounter++;
 
 	} while(result == ScannerError::OK);
-	uint32_t valueSize;
+
 	for(size_t i = 0; i < tokenVec.size(); i++) {
 		printf("Token<%lu>\t", i);
-		printf("%s\t", tokentype::asString(tokenVec[i]->getType()));
-		printf("Line: %u Column : %u\t", tokenVec[i]->getRow(), tokenVec[i]->getColumn());
-		printf("Value: %s\n", tokenVec[i]->getValue(valueSize));
+
+		printContent(tokenVec[i]);
+
 		delete tokenVec[i];
 	}
 
@@ -53,3 +54,34 @@ int main (int argc, char** argv) {
 
 	return 0;
 }
+
+
+void printContent(Token* token) {
+
+	tokentype::type_t type = token->getType();
+
+	printf("%s\t", tokentype::asString(type));
+	printf("Line: %u Column: %u\t", token->getRow(), token->getColumn());
+
+
+	switch(type) {
+	case tokentype::INTEGER:
+	{
+		printf("Value: %d\n", token->getValue());
+	} break;
+	case tokentype::IDENTIFIER:
+	{
+		printf("Lexem: %s\n", token->getInfo()->key);
+	} break;
+	case tokentype::ERROR:
+	{
+		printf("Lexem: %s\n", token->getInfo()->key);
+	} break;
+	default:
+	{
+		printf("\n");
+	} break;
+	} // end switch
+
+}
+

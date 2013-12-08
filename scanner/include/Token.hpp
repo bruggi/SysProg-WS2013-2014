@@ -11,6 +11,9 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include "Tokentypes.hpp"
+#include "../../symtable/Pair.h"
+
+typedef Pair<tokentype::type_t>* infoPtr_t;
 
 class Token {
 
@@ -19,43 +22,32 @@ private:
 	uint32_t row;
 	uint32_t column;
 	tokentype::type_t type;
-	//char* info;
 
-	//int value;
-	char* value;
-	uint32_t valueSize;
+	union {
+		int value;
+		infoPtr_t info;	// InfoContainer
+	}un_t;
 
-	//TODO: Informations Container zu Token hinzufügen
-	//InformationContainer* container;
-	/* char* info wäre InfoObj.
-	 *
-	 * sign --> info leer value leer
-	 * int --> info leer, value drinne
-	 * identifier --> info drinne, value leer
-	 *
-	 * was dann in infoObj?
-	 *
-	 * infoObj hat aus sicht des fsm ein schlüsselwort für while type
-	 * --> infoObj kennt die schlüsselwörter vor!! (vor init)
-	 *  -- InfoObj::type(if,while,ID)
-	 *  -- InfoObj::name(char*)
-	 *
-	 */
+	Token(const Token& tok);	// copy contructor should not be called!
+	Token& operator=(const Token& tok);	// assign operator should not be called!
+
 
 public:
 
 	Token();
 	~Token();
 
-	bool generate(const char* value, uint32_t valueSize,
-					uint32_t row, uint32_t col,
-					tokentype::type_t type);
+	bool generateINT(int value,	uint32_t row, uint32_t col);
+	bool generateID(infoPtr_t info, uint32_t row, uint32_t column);
+	bool generateSIGN(uint32_t row, uint32_t column, tokentype::type_t type);
+	bool generateERROR(infoPtr_t info, uint32_t row, uint32_t column);
 
 	uint32_t getRow() const;
 	uint32_t getColumn() const;
 	tokentype::type_t getType() const;
-	const char* const getValue(uint32_t& size) const;
-	char* getValueRW(uint32_t& size);
+	int getValue() const;
+	const infoPtr_t getInfo() const;
+	infoPtr_t getInfo_rw() const;
 
 
 

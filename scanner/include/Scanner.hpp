@@ -10,6 +10,7 @@
 
 #include <FSM.hpp>
 #include <Buffer.h>
+#include <Symtable.h>
 
 #include "ScannerError.hpp"
 #include "Token.hpp"
@@ -22,6 +23,7 @@ private:
 
 	buffer::Buffer* bufferClass;
 	statemachine::FSM* statemachine;
+	Symtable* symtable;
 	char* characterBuffer;
 	size_t bufIndexer;
 
@@ -35,7 +37,7 @@ public:
 	Scanner();
 	~Scanner();
 
-	ScannerError::type_t init(const char* path);
+	ScannerError::type_t init(const char* path, Symtable* symtable);
 
 	ScannerError::type_t getToken(Token& token_out);
 

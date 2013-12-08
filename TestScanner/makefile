@@ -18,10 +18,10 @@ BIN_DIR = Debug
 
 AUTOMAT_DIR = ../automat
 BUFFER_DIR = ../buffer
-#SYMTABLE_DIR = ../symtable    
+SYMTABLE_DIR = ../symtable    
 SCANNER_DIR = ../scanner
  
-INCLUDES = -I$(SCANNER_DIR)/include -I$(BUFFER_DIR)/src -I$(AUTOMAT_DIR)/include 
+INCLUDES = -I$(SCANNER_DIR)/include -I$(BUFFER_DIR)/src -I$(AUTOMAT_DIR)/include -I$(SYMTABLE_DIR)
 LIBS = -L$(LIB_DIR) -lscanner
 
 

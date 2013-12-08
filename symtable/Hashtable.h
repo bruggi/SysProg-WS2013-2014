@@ -98,13 +98,13 @@ public:
 //		ListElement<Pair<type> >* listIterator = table[hashcode(unsignedKey) % size].begin();
 		if (!contains(key)) {
 			table[hashcode(unsignedKey) % size].push_back(new Pair<type> (key, value));
-			cout << "angelegt" << endl;
+//			cout << "angelegt" << endl;
 			return true;
 		} else { //wert schon vorhanden, value überschreiben
 //			for (unsigned long i=0; i< table[hashcode(unsignedKey) % size].size();i++) {
 //				if (key == listIterator->getPairObject()->key) {
 //				listIterator->getPairObject()->value = value;
-					cout << "schon vorhanden" << endl;
+//					cout << "schon vorhanden" << endl;
 					return true;
 //				}
 //			}
@@ -124,8 +124,8 @@ public:
 		if (contains(key)) { //prüft erst ob der gesuchte Wert in der Hashtabelle vorhanden ist
 			for (int i=0;i<table[hashcode(unsignedKey) % size].size();i++) {
 				if (key == listIterator->getPairObject()->key) {
-					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
-							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
+//					cout << "gesuchter Container: " << listIterator->getPairObject() << " "
+//							<< listIterator->getPairObject()->key << " " << listIterator->getPairObject()->value << endl;
 					return listIterator->getPairObject();
 				}
 				listIterator = listIterator->getNext();
@@ -147,7 +147,7 @@ public:
 			for (unsigned long i = 0;i < table[hashcode(unsignedKey) % size].size();i++) {
 				if (key == listIterator->getPairObject()->key) {
 					table[hashcode(unsignedKey) % size].erase(listIterator); //löscht den gesuchten Wert aus der liste
-					cout << "gelöscht" << endl;
+//					cout << "gelöscht" << endl;
 
 					return (!contains(key));
 				}
@@ -183,9 +183,9 @@ public:
 		cout << "dump" << endl;
 		for(unsigned long i = 0; i  < size; i++) {
 			if(table[i].size() > 0){
-				cout << i << ": ";
+//				cout << i << ": ";
 				for(unsigned long j = 0; j < table[i].size(); j++) {
-				cout << table[i].get(j)->getPairObject()->key << " " << table[i].get(j)->getPairObject()->value << "\n";
+//				cout << table[i].get(j)->getPairObject()->key << " " << table[i].get(j)->getPairObject()->value << "\n";
 				}
 			cout << "\n";
 			}

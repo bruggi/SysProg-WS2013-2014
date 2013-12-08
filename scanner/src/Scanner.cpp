@@ -12,6 +12,7 @@ Scanner::Scanner() {
 	statemachine = NULL;
 	characterBuffer = NULL;
 	bufferClass = NULL;
+	symtable = NULL;
 	bufIndexer = 0;
 
 }
@@ -22,17 +23,19 @@ Scanner::~Scanner() {
 	if(bufferClass != NULL) {
 		delete bufferClass;
 	}
+	symtable = NULL;
 }
 
-ScannerError::type_t Scanner::init(const char* path) {
+ScannerError::type_t Scanner::init(const char* path, Symtable* symtable) {
 
 	characterBuffer = (char*) malloc(BUFSIZE);
-	if(characterBuffer == NULL) {
+	if((characterBuffer == NULL) || (symtable == NULL)) {
 		return ScannerError::NULL_POINTER;
 	}
 
 	statemachine = new statemachine::FSM();
 	bufferClass = new buffer::Buffer();
+	this->symtable = symtable;
 
 	/*	init buffer for use		*/
 	buffer::bufferError::type_t result = bufferClass->initBuffer(path);
@@ -68,8 +71,12 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::INTEGER_ID:
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, tokentype::INTEGER);
+
+			int value = (int) strtol(characterBuffer, NULL, 0);
+			if(!token_out.generateINT(value, FSMRet.currentRow, FSMRet.currentColumn)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
+
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
@@ -80,13 +87,12 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
 
-			/*
-			 * token_out.putIntoSymTable(char*, key_identifier); // token bekommt infoObj pointer
-			 */
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, tokentype::IDENTIFIER);
-			// statt tokentype::IDENTIFIER --> infotype->type
+			infoPtr_t info;
+			info = symtable->insert(characterBuffer, tokentype::IDENTIFIER);
 
+			if(!token_out.generateID(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
 
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
@@ -103,8 +109,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ret;
 			}
 
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, tokentype::KEY_COMPARE);
+			if(!token_out.generateSIGN(FSMRet.currentRow, FSMRet.currentColumn, tokentype::KEY_COMPARE)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
+
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
@@ -120,8 +128,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ret;
 			}
 
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, tokentype::KEY_COMPARE_NOT);
+			if(!token_out.generateSIGN(FSMRet.currentRow, FSMRet.currentColumn, tokentype::KEY_COMPARE_NOT)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
+
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
@@ -138,8 +148,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ret;
 			}
 
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, currentType);
+			if(!token_out.generateSIGN(FSMRet.currentRow, FSMRet.currentColumn, currentType)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
+
 			/*	erase characterBuffer	*/
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
@@ -173,9 +185,13 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ret;
 			}
 
-			token_out.generate(characterBuffer, bufIndexer + 1, FSMRet.currentRow,
-								FSMRet.currentColumn, tokentype::ERROR);
-			/*	erase characterBuffer	*/
+			infoPtr_t info;
+			info = symtable->insert(characterBuffer, tokentype::ERROR);
+
+			if(!token_out.generateERROR(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
+
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 

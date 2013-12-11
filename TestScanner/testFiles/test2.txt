@@ -1,0 +1,37 @@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+nix
+ 
+abcdefghijklmnopqrstuvwxyz
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+1234567890
+0987654321
+1 2 3 4 5 6 7 8 9 0
+0 9 8 7 6 5 4 3 2 1
+
+~ + * / # ' , ; . : - _ ? ß \ = } ) ] ( [ / { & ¬ % ½ $ ¼ " ² ! ¹ ′ ° < > 
+
+LARGE_IDENTIFIER
+DiesIstEinVerdammtGrosserIdentifierKeinAhnungWieVieleZeichenDieserGenauHatUmMehrZeichenZuErreichenSchreibeIchJetztEinfachMalZiemlichVielenDuennschissHierhinHoffentlichLiestDashierKeinerGenauNachSonstBeschaeftigtErSichJaNochMitSolchEinemSchrottigemSchrottDesSchrotthaufensAllerSchrotthaufenAufDerSchrotthaldeUnterSoNerSchrottBruecke
+
+while(x =!= 4) {
+  printf("Help me, i am an needles printf!\n)";
+  if(x == 2) {
+    x++;
+    x -= 77;
+  }
+  int ptr->blubDieBlubl();
+}
+
+LARGE_INTEGER
+1235676543784956874378945687543728493749865920397565409876434342678495764545678984764696586453758697065487332938765463782900987654322315278349506789089785746356789000000000009876543456788888766666666666665444444444444432
+
+Kommentar:
+/* ccccccccccc *cccc *** akefj* /  +/ */
+Mehrere Zeilenkommentar:
+/*  cccccccccc **cc c
+blub c blab C -/ /* */
+
+ENDE?

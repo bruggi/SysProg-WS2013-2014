@@ -1,0 +1,2482 @@
+ASCII-TEST-TXT
+
+signs
+! " # $ % & ( k ) * + , - . / 
+digits
+0 1 2 3 4 5 6 7 8 9
+signs
+: ; < = > ? @
+uppercase
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+signs
+[ \ ] ^ _ `
+lowercase
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+signs
+{ | } ~
+special
+é è â á à ê î í ì É ®
+
+-------
+int a = 2;
+while(true) {
+    a += 5;
+    
+}
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+--------
+BELASTUNG
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %
+x=3+4;
+/* eine einfache Aufgabe !! */
+?y === X / (X - 4) ;
+Z = ((3 + 4 - 6);
+Resultat = / X y %

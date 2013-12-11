@@ -44,15 +44,15 @@ const char* asString(type_t t) {
 
 
 Token::Token() {
-
+	this->info = NULL;
 }
 Token::~Token() {
 
 }
 
-bool Token::generateINT(int value,	uint32_t row, uint32_t col) {
+bool Token::generateINT(long value,	uint32_t row, uint32_t col) {
 
-	this->un_t.value = value;
+	this->value = value;
 	this->row = row;
 	this->column = col;
 	this->type = tokentype::INTEGER;
@@ -65,7 +65,7 @@ bool Token::generateID(infoPtr_t info, uint32_t row, uint32_t column) {
 		return false;
 	}
 
-	this->un_t.info = info;
+	this->info = info;
 	this->row = row;
 	this->column = column;
 	this->type = tokentype::IDENTIFIER;
@@ -77,7 +77,7 @@ bool Token::generateSIGN(uint32_t row, uint32_t column, tokentype::type_t type) 
 	this->row = row;
 	this->column = column;
 	this->type = type;
-	this->un_t.info = NULL;
+	this->info = NULL;
 
 	return true;
 }
@@ -89,7 +89,7 @@ bool Token::generateERROR(infoPtr_t info, uint32_t row, uint32_t column) {
 
 	this->row = row;
 	this->column = column;
-	this->un_t.info = info;
+	this->info = info;
 	this->type = tokentype::ERROR;
 
 	return true;
@@ -104,13 +104,13 @@ tokentype::type_t Token::getType() const {
 	return this->type;
 }
 
-int Token::getValue() const {
-	return this->un_t.value;
+long Token::getValue() const {
+	return this->value;
 }
 const infoPtr_t Token::getInfo() const {
-	return this->un_t.info;
+	return this->info;
 }
 infoPtr_t Token::getInfo_rw() const {
-	return this->un_t.info;
+	return this->info;
 }
 

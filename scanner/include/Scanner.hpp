@@ -26,6 +26,7 @@ private:
 	Symtable* symtable;
 	char* characterBuffer;
 	size_t bufIndexer;
+	bool isOverflow;
 
 	static const size_t BUFSIZE = 256;
 

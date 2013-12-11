@@ -23,10 +23,8 @@ private:
 	uint32_t column;
 	tokentype::type_t type;
 
-	union {
-		int value;
-		infoPtr_t info;	// InfoContainer
-	}un_t;
+	long value;
+	infoPtr_t info;
 
 	Token(const Token& tok);	// copy contructor should not be called!
 	Token& operator=(const Token& tok);	// assign operator should not be called!
@@ -37,7 +35,7 @@ public:
 	Token();
 	~Token();
 
-	bool generateINT(int value,	uint32_t row, uint32_t col);
+	bool generateINT(long value,	uint32_t row, uint32_t col);
 	bool generateID(infoPtr_t info, uint32_t row, uint32_t column);
 	bool generateSIGN(uint32_t row, uint32_t column, tokentype::type_t type);
 	bool generateERROR(infoPtr_t info, uint32_t row, uint32_t column);
@@ -45,7 +43,7 @@ public:
 	uint32_t getRow() const;
 	uint32_t getColumn() const;
 	tokentype::type_t getType() const;
-	int getValue() const;
+	long getValue() const;
 	const infoPtr_t getInfo() const;
 	infoPtr_t getInfo_rw() const;
 

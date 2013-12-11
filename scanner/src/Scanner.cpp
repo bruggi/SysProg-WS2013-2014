@@ -7,6 +7,7 @@
 
 #include "../include/Scanner.hpp"
 #include <string.h>
+#include <climits>
 
 Scanner::Scanner() {
 	statemachine = NULL;
@@ -14,6 +15,7 @@ Scanner::Scanner() {
 	bufferClass = NULL;
 	symtable = NULL;
 	bufIndexer = 0;
+	isOverflow = false;
 
 }
 Scanner::~Scanner() {
@@ -73,12 +75,32 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
 
-			int value = (int) strtol(characterBuffer, NULL, 0);
-			if(!token_out.generateINT(value, FSMRet.currentRow, FSMRet.currentColumn)) {
-				return ScannerError::TOKEN_GEN_ERR;
+			/*	when characterBuffer was too small	*/
+			if(isOverflow) {
+				info = symtable->insert("<Integer too long>", tokentype::ERROR);
+
+				if(!token_out.generateERROR(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+					return ScannerError::TOKEN_GEN_ERR;
+				}
+			} else {
+				long value = strtol(characterBuffer, NULL, 0);
+
+				/*	when value wasn't converted successfully	*/
+				if((value == LONG_MAX) || (value == LONG_MIN)) {
+					/*	long value out of range	*/
+					info = symtable->insert("<Integer too long>", tokentype::ERROR);
+
+					if(!token_out.generateERROR(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+						return ScannerError::TOKEN_GEN_ERR;
+					}
+				}
+				else if(!token_out.generateINT(value, FSMRet.currentRow, FSMRet.currentColumn)) {
+					return ScannerError::TOKEN_GEN_ERR;
+				}
 			}
 
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -88,14 +110,22 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
 
+			/*	when characterBuffer was too small	*/
+			if(isOverflow) {
+				info = symtable->insert("<Identifier too long>", tokentype::ERROR);
 
-			info = symtable->insert(characterBuffer, tokentype::IDENTIFIER);
+				if(!token_out.generateERROR(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+					return ScannerError::TOKEN_GEN_ERR;
+				}
+			} else {
+				info = symtable->insert(characterBuffer, tokentype::IDENTIFIER);
 
-			if(!token_out.generateID(info, FSMRet.currentRow, FSMRet.currentColumn)) {
-				return ScannerError::TOKEN_GEN_ERR;
+				if(!token_out.generateID(info, FSMRet.currentRow, FSMRet.currentColumn)) {
+					return ScannerError::TOKEN_GEN_ERR;
+				}
 			}
-
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -104,6 +134,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::SPECIAL_SIGN_1_ID:
 		{
 			/*	buffer.ungetchar() not necessary	*/
+			if(isOverflow) {
+				break;	// when BUFSIZE was reached
+			}
+
 			ScannerError::type_t ret;
 			ret = saveChar(tempChar);
 			if(ret != ScannerError::OK) {
@@ -115,6 +149,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 			}
 
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -123,6 +158,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::SPECIAL_SIGN_2_ID:
 		{
 			/*	buffer.ungetchar() not necessary	*/
+			if(isOverflow) {
+				break;	// when BUFSIZE was reached
+			}
+
 			ScannerError::type_t ret;
 			ret = saveChar(tempChar);
 			if(ret != ScannerError::OK) {
@@ -134,6 +173,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 			}
 
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -142,6 +182,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::SIGN_ID:
 		{
 			tokentype::type_t currentType = identifySign(tempChar);
+
+			if(isOverflow) {
+				break;	// when BUFSIZE was reached
+			}
 
 			ScannerError::type_t ret;
 			ret = saveChar(tempChar);
@@ -154,6 +198,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 			}
 
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -162,6 +207,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		case statemachine::FSMstatus::COMMENT_END:
 		{
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 		} break;
@@ -169,17 +215,22 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		{
 			bufferClass->ungetChar(FSMRet.charsBack);
 			/*	erase characterBuffer	*/
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
 		} break;
 		case statemachine::FSMstatus::IGNORE:
 		{
-			/*	a comment will be ingnored, nothing to do	*/
+			/*	a comment will be ignored, nothing to do	*/
 		} break;
 		case statemachine::FSMstatus::ERROR_TOK:
 		{
 			/*	buffer.ungetchar() not necessary	*/
+			if(isOverflow) {
+				break;	// when BUFSIZE was reached
+			}
+
 			ScannerError::type_t ret;
 			ret = saveChar(tempChar);
 			if(ret != ScannerError::OK) {
@@ -192,6 +243,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 				return ScannerError::TOKEN_GEN_ERR;
 			}
 
+			isOverflow = false;
 			memset(characterBuffer, 0, BUFSIZE);
 			bufIndexer = 0;
 
@@ -199,6 +251,10 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		} break;
 		case statemachine::FSMstatus::OK:
 		{
+			if(isOverflow) {
+				break;	// when BUFSIZE was reached
+			}
+
 			ScannerError::type_t ret;
 			ret = saveChar(tempChar);
 			if(ret != ScannerError::OK) {
@@ -246,10 +302,15 @@ tokentype::type_t Scanner::identifySign(char sign) {
 
 ScannerError::type_t Scanner::saveChar(char currentChar) {
 	if((bufIndexer + 1) >= BUFSIZE) {
-		return ScannerError::TMP_BUF_TOO_SMALL;
+		isOverflow = true;
+		memset(characterBuffer, 0, BUFSIZE);
+		bufIndexer = 0;
+		//return ScannerError::TMP_BUF_TOO_SMALL;
+	} else {
+		characterBuffer[bufIndexer] = currentChar;
+		bufIndexer++;
+//		return ScannerError::OK;
 	}
-	characterBuffer[bufIndexer] = currentChar;
-	bufIndexer++;
 	return ScannerError::OK;
 }
 

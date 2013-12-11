@@ -29,17 +29,22 @@ int main (int argc, char** argv) {
 
 	int counter = 0;	// for debug, stands for the amount of tokens
 	do {
-		if(counter == 205) {
+		if(counter == 480784) {
 			counter++;
 		}
 		Token* currentToken = new Token();
 		result = scanner.getToken(*currentToken);
+
 		if(result == ScannerError::OK) {
 
 			printf("Token<%d>\t", counter);
 			printContent(currentToken);
 		}
+
+
+
 		counter++;
+		delete currentToken;
 
 	} while(result == ScannerError::OK);
 
@@ -60,7 +65,7 @@ void printContent(Token* token) {
 	switch(type) {
 	case tokentype::INTEGER:
 	{
-		printf("Value: %d\n", token->getValue());
+		printf("Value: %ld\n", token->getValue());
 	} break;
 	case tokentype::IDENTIFIER:
 	{

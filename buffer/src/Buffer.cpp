@@ -149,7 +149,7 @@ void Buffer::ungetChar(size_t stepsBack){
 	for (int i = stepsBack; i > 0; i--) {
 		if(currentPos == 0){
 			currentPos = (BUFSIZE * 2 - 1);
-			currentPos -= 1;
+//			currentPos -= 1;
 		}else {
 			currentPos-= 1;
 
@@ -180,10 +180,11 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 			if(result != bufferError::OK) {
 				return result;
 			}
-			currentBuffer = p_bufferA;
-			currentPos = 0;
-			offset = 0;
 		}
+		currentBuffer = p_bufferA;
+		currentPos = 0;
+		offset = 0;
+
 	}
 
 	/*	nothing to switch	*/

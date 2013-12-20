@@ -68,7 +68,7 @@ bool Token::generateID(infoPtr_t info, uint32_t row, uint32_t column) {
 	this->info = info;
 	this->row = row;
 	this->column = column;
-	this->type = tokentype::IDENTIFIER;
+	this->type = info->value;
 
 	return true;
 }

@@ -62,12 +62,13 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		statemachine::FSMstatus::status_struct FSMRet;
 		FSMRet.returnStatus = statemachine::FSMstatus::UN_DEF;
 
+		/*	get current character from buffer	*/
 		buffer::bufferError::type_t bufferRet = bufferClass->getChar(tempChar);
 		if(bufferRet != buffer::bufferError::OK) {
 			return ScannerError::BUFFER_READ_ERR;
 		}
 
-
+		/*	validate current character in FSM	*/
 		FSMRet = statemachine->validateChar(tempChar);
 
 		switch(FSMRet.returnStatus) {
@@ -83,7 +84,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 					return ScannerError::TOKEN_GEN_ERR;
 				}
 			} else {
-				long value = strtol(characterBuffer, NULL, 0);
+				long value = strtol(characterBuffer, NULL, 10);
 
 				/*	when value wasn't converted successfully	*/
 				if((value == LONG_MAX) || (value == LONG_MIN)) {
@@ -156,7 +157,7 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 			return ScannerError::OK;
 		} break;
 		case statemachine::FSMstatus::SPECIAL_SIGN_2_ID:
-		{
+		{	/*		=!=		*/
 			/*	buffer.ungetchar() not necessary	*/
 			if(isOverflow) {
 				break;	// when BUFSIZE was reached

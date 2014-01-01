@@ -7,23 +7,38 @@
 
 #include <Scanner.hpp>
 #include <Symtable.h>
+#include <OutputBuffer.hpp>
 #include <stdio.h>
 
 #include <vector>
 
-void printContent(Token* token);
+void printContent(Token* token, buffer::OutputBuffer* outBuf);
 
 int main (int argc, char** argv) {
 
 	Scanner scanner;
+	buffer::OutputBuffer* outBuffer = new buffer::OutputBuffer();
 	ScannerError::type_t result;
 	Symtable* symtable = new Symtable();
 
-	printf("Input: %s\n", argv[1]);
+	if(argc < 4) {
+		printf("Not enough arguments!\n");
+		return 0;
+	}
 
+	printf("Input:  %s\n", argv[1]);
+	printf("Output: %s\n", argv[2]);
+	printf("Log:    %s\n", argv[3]);
+
+	if(!outBuffer->init(argv[2], argv[3]) ){
+		printf("OutputBuffer init error!\n");
+		return 0;
+	}
+
+	outBuffer->printLog(buffer::logLevel::INFO, __func__, "starting scanner test!");
 	result = scanner.init(argv[1], symtable);
 	if(result != ScannerError::OK) {
-		printf("Scanner init error <%d>!\n", result);
+		outBuffer->printLog(buffer::logLevel::FATAL, __func__, "Scanner init error <%d>!\n", result);
 	}
 
 
@@ -37,8 +52,8 @@ int main (int argc, char** argv) {
 
 		if(result == ScannerError::OK) {
 
-			printf("Token<%d>\t", counter);
-			printContent(currentToken);
+			outBuffer->write("Token<%d>\t", counter);
+			printContent(currentToken, outBuffer);
 		}
 
 
@@ -48,36 +63,36 @@ int main (int argc, char** argv) {
 
 	} while(result == ScannerError::OK);
 
-	printf("\n\tENDE!!\n");
+	outBuffer->printLog(buffer::logLevel::INFO, __func__, "ENDE!!");
 
 	return 0;
 }
 
 
-void printContent(Token* token) {
+void printContent(Token* token, buffer::OutputBuffer* outBuf) {
 
 	tokentype::type_t type = token->getType();
 
-	printf("%s\t", tokentype::asString(type));
-	printf("Line: %u Column: %u\t", token->getRow(), token->getColumn());
+	outBuf->write("%s\t", tokentype::asString(type));
+	outBuf->write("Line: %u Column: %u\t", token->getRow(), token->getColumn());
 
 
 	switch(type) {
 	case tokentype::INTEGER:
 	{
-		printf("Value: %ld\n", token->getValue());
+		outBuf->write("Value: %ld\n", token->getValue());
 	} break;
 	case tokentype::IDENTIFIER:
 	{
-		printf("Lexem: %s\n", token->getInfo()->key);
+		outBuf->write("Lexem: %s\n", token->getInfo()->key);
 	} break;
 	case tokentype::ERROR:
 	{
-		printf("Lexem: %s\n", token->getInfo()->key);
+		outBuf->write("Lexem: %s\n", token->getInfo()->key);
 	} break;
 	default:
 	{
-		printf("\n");
+		outBuf->write("\n");
 	} break;
 	} // end switch
 

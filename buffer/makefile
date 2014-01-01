@@ -17,7 +17,7 @@ OBJ_DIR = Debug
 LIB_DIR = lib
 BIN_DIR = Debug
 
-OBJECTS = $(OBJ_DIR)/Buffer.o
+OBJECTS = $(OBJ_DIR)/Buffer.o $(OBJ_DIR)/OutputBuffer.o
 
 .PHONY : clean all
 

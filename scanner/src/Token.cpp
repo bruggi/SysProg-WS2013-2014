@@ -36,6 +36,10 @@ const char* asString(type_t t) {
 	case KEY_AMPERSAND:			return "Ampersand\t";
 	case KEY_COMPARE:			return "Compare\t\t";
 	case KEY_COMPARE_NOT:		return "Compare Not\t";
+	case KEY_PRINT:				return "PRINT\t\t";
+	case KEY_READ:				return "READ\t\t";
+	case KEY_INT:				return "INT\t\t";
+	case KEY_ELSE:				return "ELSE\t\t";
 	default:					return "UNDEFINED\t";
 	} // end switch
 	return "UNDEFINED";

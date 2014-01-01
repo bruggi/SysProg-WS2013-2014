@@ -11,12 +11,20 @@
 namespace tokentype {
 
 typedef enum {
+	NO_TYPE,
 	INTEGER,
+	ARRAY,
+	INT_ARRAY,
 	IDENTIFIER,
 	ERROR,
 	UNDEFINED,
+	END_OF_FILE,
 	KEY_IF,					/*	'if'	*/
 	KEY_WHILE,				/*	'while'	*/
+	KEY_READ,				/*	'read'	*/
+	KEY_PRINT,				/*	'print'	*/
+	KEY_ELSE,				/*	'else'	*/
+	KEY_INT,				/*	'int'	*/
 	KEY_PLUS,				/*	'+'		*/
 	KEY_MINUS,				/*	'-'		*/
 	KEY_SLASH,				/*	'/'		*/

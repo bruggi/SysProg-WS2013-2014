@@ -9,6 +9,24 @@
 #include <string.h>
 #include <climits>
 
+namespace ScannerError {
+const char* AsString(type_t t) {
+	switch(t) {
+	case OK:					return "OK";
+	case NULL_POINTER :			return "Null pointer";
+	case INVALID_PARAM :		return "Invalid function parameter";
+	case SCANNER_NOT_INIT :		return "Scanner was not initialized";
+	case BUFFER_INIT_ERR :		return "Buffer init error occurred";
+	case BUFFER_READ_ERR :		return "Buffer read error occurred";
+	case EOF_REACHED :			return "End of file reached";
+	case TMP_BUF_TOO_SMALL :	return "Temporary buffer in scanner too small";
+	case TOKEN_GEN_ERR :		return "Token generation error";
+	case FATAL_FSM_ERR :		return "Fatal FSM error";
+	default:					return "Undefined";
+	} // end switch
+}
+} //namespace ScannerError
+
 Scanner::Scanner() {
 	statemachine = NULL;
 	characterBuffer = NULL;
@@ -34,6 +52,7 @@ ScannerError::type_t Scanner::init(const char* path, Symtable* symtable) {
 	if((characterBuffer == NULL) || (symtable == NULL)) {
 		return ScannerError::NULL_POINTER;
 	}
+	memset(characterBuffer, 0, BUFSIZE);
 
 	statemachine = new statemachine::FSM();
 	bufferClass = new buffer::Buffer();
@@ -264,6 +283,9 @@ ScannerError::type_t Scanner::getToken(Token& token_out) {
 		} break;
 		case statemachine::FSMstatus::END_OF_FILE:
 		{
+			if(!token_out.generateSIGN(FSMRet.currentRow, FSMRet.currentColumn, tokentype::END_OF_FILE)) {
+				return ScannerError::TOKEN_GEN_ERR;
+			}
 			return ScannerError::EOF_REACHED;
 		}
 		default:

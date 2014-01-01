@@ -23,7 +23,7 @@ typedef enum {
 	FATAL_FSM_ERR = -99
 
 }type_t;
-
+const char* AsString(type_t t);
 } // namespace ScannerError
 
 #endif /* SCANNERERROR_HPP_ */

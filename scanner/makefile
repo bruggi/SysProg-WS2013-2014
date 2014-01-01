@@ -25,7 +25,13 @@ SYMTABLE_DIR = ../symtable
 INCLUDES = -I$(AUTOMAT_DIR)/include -I$(BUFFER_DIR)/src -I$(SYMTABLE_DIR)
 #LIBS = -L$(AUTOMAT_DIR)/$(LIB_DIR) -L$(BUFFER_DIR)/$(LIB_DIR) -lautomat -lbuffer
 
-OBJECTS = $(OBJ_DIR)/Scanner.o $(OBJ_DIR)/Token.o $(AUTOMAT_DIR)/$(OBJ_DIR)/FSM.o $(AUTOMAT_DIR)/$(OBJ_DIR)/StateMatrix.o $(BUFFER_DIR)/$(OBJ_DIR)/Buffer.o $(SYMTABLE_DIR)/$(OBJ_DIR)/Symtable.o
+OBJECTS = $(OBJ_DIR)/Scanner.o \
+$(OBJ_DIR)/Token.o \
+$(AUTOMAT_DIR)/$(OBJ_DIR)/FSM.o \
+$(AUTOMAT_DIR)/$(OBJ_DIR)/StateMatrix.o \
+$(BUFFER_DIR)/$(OBJ_DIR)/Buffer.o \
+$(BUFFER_DIR)/$(OBJ_DIR)/OutputBuffer.o \
+$(SYMTABLE_DIR)/$(OBJ_DIR)/Symtable.o
 
 .PHONY : clean all
 

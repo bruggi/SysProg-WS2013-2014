@@ -65,6 +65,12 @@ Token* Parser::getNextToken() {
 		return NULL;
 	}
 
+	if(currentToken->getType() == tokentype::ERROR) {
+		fileWriter->printLog(buffer::logLevel::FATAL, __func__,
+						"Error Token: %s at Row: %u Column: %u", currentToken->getInfo()->key,
+						currentToken->getRow(), currentToken->getColumn());
+	}
+
 	tokenVec.push_back(currentToken);
 	return currentToken;
 }
@@ -237,6 +243,8 @@ parserError::type_t Parser::parse_Decl(DeclNode* decl) {
 		if(currentTokType == tokentype::IDENTIFIER) {
 			decl->identifier = currentToken;
 
+			decl->identifier->setType(tokentype::NO_TYPE);
+
 			currentToken = getNextToken();
 			if(currentToken == NULL) {
 				return parserError::NULL_POINTER;
@@ -342,7 +350,7 @@ parserError::type_t Parser::parse_Statements(StatementsNode* statements){
 			return parseResult;
 		}
 
-		if(currentTokType == tokentype::KEY_SEMICOLON) {
+		if(currentTokType == tokentype::KEY_SEMICOLON || currentTokType == tokentype::END_OF_FILE) {
 
 			currentToken = getNextToken();
 			if(currentToken == NULL) {

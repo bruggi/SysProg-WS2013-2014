@@ -28,7 +28,7 @@ void DeclNode::typeCheck() {
 
 	this->array->typeCheck();
 
-	if(identifier->getInfo()->value != tokentype::NO_TYPE) {
+	if(identifier->getType() != tokentype::NO_TYPE) {
 
 		parser->getFileWriter()->printLog(buffer::logLevel::INFO, __func__,
 						"DECL Identifier: %s already defined.", identifier->getInfo()->key);

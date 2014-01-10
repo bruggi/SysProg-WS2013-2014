@@ -183,7 +183,7 @@ void StatementNode::makeCode(){
 
 		parser->getFileWriter()->write("#m");
 
-		parser->getFileWriter()->write("%d", label1);
+		parser->getFileWriter()->write("%d ", label1);
 		parser->getFileWriter()->write("NOP");
 		parser->getFileWriter()->write("\n");
 
@@ -191,7 +191,7 @@ void StatementNode::makeCode(){
 
 		parser->getFileWriter()->write("#m");
 
-		parser->getFileWriter()->write("%d", label2);
+		parser->getFileWriter()->write("%d ", label2);
 		parser->getFileWriter()->write("NOP");
 		parser->getFileWriter()->write("\n");
 
@@ -203,7 +203,7 @@ void StatementNode::makeCode(){
 
 		parser->getFileWriter()->write("#m");
 
-		parser->getFileWriter()->write("%d", label1);
+		parser->getFileWriter()->write("%d ", label1);
 		parser->getFileWriter()->write("NOP");
 		parser->getFileWriter()->write("\n");
 
@@ -223,7 +223,7 @@ void StatementNode::makeCode(){
 
 		parser->getFileWriter()->write("#m");
 
-		parser->getFileWriter()->write("%d", label2);
+		parser->getFileWriter()->write("%d ", label2);
 		parser->getFileWriter()->write("NOP");
 		parser->getFileWriter()->write("\n");
 

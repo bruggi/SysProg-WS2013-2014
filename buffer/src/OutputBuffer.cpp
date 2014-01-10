@@ -60,7 +60,7 @@ bool OutputBuffer::init(const char* out_path, const char* log_path) {
 	/*	open only out file	*/
 	if(log_path == NULL) {
 
-		filePtr_out = fopen(out_path, "a");
+		filePtr_out = fopen(out_path, "w");
 		if(filePtr_out == NULL) {
 			return false;
 		}

@@ -47,6 +47,8 @@ public:
 	const infoPtr_t getInfo() const;
 	infoPtr_t getInfo_rw() const;
 
+	void setType(tokentype::type_t t);
+
 
 
 }; // class Token

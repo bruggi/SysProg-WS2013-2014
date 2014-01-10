@@ -117,4 +117,6 @@ const infoPtr_t Token::getInfo() const {
 infoPtr_t Token::getInfo_rw() const {
 	return this->info;
 }
-
+void Token::setType(tokentype::type_t t) {
+	this->type = t;
+}

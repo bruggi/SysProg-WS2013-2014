@@ -187,8 +187,8 @@ const char* const StateMatrix::stateAsString(states::type_states state) {
 	case states::ID_ID:			return "IDENTIFIER_IDENTIFIED";		break;
 	case states::SGN_1_SEEN:	return "SIGN_1_SEEN";				break;
 	case states::SGN_2_SEEN:	return "SIGN_2_SEEN";				break;
-	case states::SPCL_SGN_1_ID:	return "SPECIAL_SIGN_1_SEEN";		break;
-	case states::SPCL_SGN_2_ID:	return "SPECIAL_SIGN_2_SEEN";		break;
+	case states::SPCL_SGN_1_ID:	return "SPECIAL_SIGN_1_ID";		break;
+	case states::SPCL_SGN_2_ID:	return "SPECIAL_SIGN_2_ID";		break;
 	case states::SGN_1_ERR:		return "Sign_1_ERROR";				break;
 	case states::SGN_2_ERR:		return "SIGN_2_ERROR";				break;
 	case states::SGN_ID:		return "SIGN_IDENTIFIED";			break;

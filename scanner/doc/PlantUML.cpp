@@ -90,17 +90,20 @@
 /// @startuml
 /// --> Scanner : nextToken()
 /// activate Scanner
-/// Scanner --> Buffer : getchar()
-/// activate Buffer
 /// loop until identified
+///    Scanner --> Buffer : getchar()
+///    activate Buffer
 ///    Scanner --> FSM : validateChar()
+///    deactivate Buffer
 ///    activate FSM
+///    FSM --> Scanner : status
 /// end
 /// deactivate FSM
-/// Scanner --> Symtable : saveToken()
+/// Scanner --> Symtable : createInfo()
 /// activate Symtable
 /// deactivate Symtable
 /// deactivate Buffer
+///  <-- Scanner : Token
 /// deactivate Scanner
 
 /// @enduml

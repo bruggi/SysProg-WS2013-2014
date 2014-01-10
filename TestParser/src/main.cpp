@@ -13,7 +13,6 @@
 
 int main(int argc, char **argv) {
 
-	// TODO: typeCheck() muss eigene namespace::type_t bekommen !!!
 
 	if(argc < 4) {
 		printf("Too less arguments given!\n");

@@ -243,6 +243,7 @@ parserError::type_t Parser::parse_Decl(DeclNode* decl) {
 		if(currentTokType == tokentype::IDENTIFIER) {
 			decl->identifier = currentToken;
 
+			/*	für typeCheck	*/
 			decl->identifier->setType(tokentype::NO_TYPE);
 
 			currentToken = getNextToken();

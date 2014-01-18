@@ -13,12 +13,23 @@ namespace buffer {
 Buffer::Buffer() {
 	bufferA = NULL;
 	bufferB = NULL;
+	bufferC = NULL;
 	p_bufferA = NULL;
 	p_bufferB = NULL;
+	p_bufferC = NULL;
 
 	currentPos = 0;
 	wasFilled = false;
 	fileId = 0;
+
+	countChars = 0;
+	counter = 0;
+
+	pthread_mutex_init(&bufferAmutex,NULL);
+	pthread_mutex_init(&bufferBmutex,NULL);
+	pthread_mutex_init(&bufferCmutex,NULL);
+	pthread_create(&readerThread, NULL,fillBufferVoid, NULL);
+
 }
 
 /*
@@ -93,7 +104,26 @@ bufferError::type_t Buffer::initBuffer(const char* path){
 */
 bufferError::type_t Buffer::fillBuffer(void* buffer){
 
+	if(currentPos == BUFSIZE){
+		pthread_mutex_lock(&bufferCmutex);
+	}
+	else if(currentPos == BUFSIZE * 2){
+		pthread_mutex_lock(&bufferAmutex);
+	}
+	else if(currentPos == BUFSIZE * 3){
+		pthread_mutex_lock(&bufferBmutex);
+	}
+
 	if(buffer == NULL) {
+		if(currentPos == BUFSIZE){
+			pthread_mutex_unlock(&bufferCmutex);
+		}
+		else if(currentPos == BUFSIZE * 2){
+			pthread_mutex_unlock(&bufferAmutex);
+		}
+		else if(currentPos == BUFSIZE * 3){
+			pthread_mutex_unlock(&bufferBmutex);
+		}
 		return bufferError::NULL_POINTER;
 	}
 	countChars = read(fileId, buffer, BUFSIZE);
@@ -110,7 +140,22 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 	}
 
 	wasFilled = true;
+
+	if(currentPos == BUFSIZE){
+		pthread_mutex_unlock(&bufferCmutex);
+	}
+	else if(currentPos == BUFSIZE * 2){
+		pthread_mutex_unlock(&bufferAmutex);
+	}
+	else if(currentPos == BUFSIZE * 3){
+		pthread_mutex_unlock(&bufferBmutex);
+	}
+
 	return bufferError::OK;
+}
+
+void* Buffer::fillBufferVoid(void* buffer){
+	fillBuffer(buffer);
 }
 
 /*
@@ -118,6 +163,16 @@ bufferError::type_t Buffer::fillBuffer(void* buffer){
 * kann nicht entscheiden ob ende erreicht ist.
 */
 bufferError::type_t Buffer::getChar(char& out_char){
+
+	if(currentPos == BUFSIZE){
+		pthread_mutex_lock(&bufferCmutex);
+	}
+	else if(currentPos == BUFSIZE * 2){
+		pthread_mutex_lock(&bufferAmutex);
+		}
+	else if(currentPos == BUFSIZE * 3){
+		pthread_mutex_lock(&bufferBmutex);
+	}
 
 	char* tempBuffer = NULL;
 	int offset;
@@ -134,7 +189,15 @@ bufferError::type_t Buffer::getChar(char& out_char){
 	out_char = tempBuffer[currentPos - offset];
 	currentPos++;
 
-
+	if(currentPos == BUFSIZE){
+		pthread_mutex_unlock(&bufferCmutex);
+	}
+	else if(currentPos == BUFSIZE * 2){
+		pthread_mutex_unlock(&bufferAmutex);
+	}
+	else if(currentPos == BUFSIZE * 3){
+		pthread_mutex_unlock(&bufferBmutex);
+	}
 	return bufferError::OK;
 }
 
@@ -148,7 +211,7 @@ void Buffer::ungetChar(size_t stepsBack){
 
 	for (int i = stepsBack; i > 0; i--) {
 		if(currentPos == 0){
-			currentPos = (BUFSIZE * 2 - 1);
+			currentPos = (BUFSIZE * 3 - 1);
 //			currentPos -= 1;
 		}else {
 			currentPos-= 1;
@@ -157,14 +220,16 @@ void Buffer::ungetChar(size_t stepsBack){
 	}
 }
 
+//hier die if ändern und fillbuffer threaden!
 bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) {
 
 	bufferError::type_t result;
 
 	if(currentPos == BUFSIZE) {
+		/*  fill C and switch to B  */
 		/*	switch to B	and fill it	*/
 		if(!wasFilled) {
-			result = fillBuffer(bufferB);
+			result = fillBuffer(bufferC);  //threading!!!
 			if(result != bufferError::OK) {
 				return result;
 			}
@@ -174,9 +239,23 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 
 	}
 	else if (currentPos == BUFSIZE * 2) {
-		/*	switch to A and fill it	*/
+		/*  fill A and switch to C  */
+		/*	switch to B and fill it	*/
 		if(!wasFilled) {
 			result = fillBuffer(bufferA);
+			if(result != bufferError::OK) {
+				return result;
+			}
+		}
+		currentBuffer = p_bufferC;
+		offset = BUFSIZE;
+
+	}
+	else if (currentPos == BUFSIZE * 3) {
+		/*  fill B and switch to A  */
+		/*	switch to A and fill it	*/
+		if(!wasFilled) {
+			result = fillBuffer(bufferB);
 			if(result != bufferError::OK) {
 				return result;
 			}
@@ -196,6 +275,11 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 	else if((currentPos >= BUFSIZE) && (currentPos < BUFSIZE * 2 )) {
 		/*	buffer B	*/
 		currentBuffer = p_bufferB;
+		offset = BUFSIZE;
+	}
+	else if((currentPos >= BUFSIZE * 2) && (currentPos >= BUFSIZE * 3)) {
+		/*	buffer C	*/
+		currentBuffer = p_bufferC;
 		offset = BUFSIZE;
 	}
 
@@ -218,6 +302,10 @@ Buffer::~Buffer() {
 
 	if(p_bufferB != NULL){
 		delete p_bufferB;
+	}
+
+	if(p_bufferC != NULL){
+		delete p_bufferC;
 	}
 } 
 

@@ -13,8 +13,10 @@ namespace buffer {
 Buffer::Buffer() {
 	bufferA = NULL;
 	bufferB = NULL;
+	bufferC = NULL;
 	p_bufferA = NULL;
 	p_bufferB = NULL;
+	p_bufferC = NULL;
 
 	currentPos = 0;
 	wasFilled = false;
@@ -72,8 +74,14 @@ bufferError::type_t Buffer::initBuffer(const char* path){
 		return bufferError::ALLOC_ERR;
 	}
 
+	ret = posix_memalign( &bufferC, getpagesize(),BUFSIZE + 1); // +1, for secured \0 adding
+	if(ret != 0) {
+		return bufferError::ALLOC_ERR;
+	}
+
 	p_bufferA = (char*)bufferA;
 	p_bufferB = (char*)bufferB;
+	p_bufferC = (char*)bufferC;
 
 	bufferError::type_t openRet;
 	openRet = openFile(path);
@@ -162,29 +170,36 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 	bufferError::type_t result;
 
 	if(currentPos == BUFSIZE) {
-		/*	switch to B	and fill it	*/
+		/*	switch to B and fill C  */
 		if(!wasFilled) {
-			result = fillBuffer(bufferB);
-			if(result != bufferError::OK) {
-				return result;
-			}
-			currentBuffer = p_bufferB;
-			offset = BUFSIZE;
+			pthread_join(bufferThread,NULL);
+			bufferStruct c{this,bufferC};
+			(void) pthread_create(&bufferThread,NULL,&bufferFillThreadWrap, &c);
 		}
+			currentBuffer = p_bufferB;
+			offset = BUFSIZE * 2;
+		}
+	else if (currentPos == BUFSIZE * 2) {
+		/*	switch to C and fill 'A	*/
+		if(!wasFilled) {
+			pthread_join(bufferThread,NULL);
+			bufferStruct a{this,&bufferA};
+			pthread_create(&bufferThread,NULL,&bufferFillThreadWrap, &a);
+		}
+		currentBuffer = p_bufferC;
+		offset = BUFSIZE * 3;
 
 	}
-	else if (currentPos == BUFSIZE * 2) {
-		/*	switch to A and fill it	*/
+	else if ( currentPos == BUFSIZE * 3) {
+		/*  switch to A and fill B */
 		if(!wasFilled) {
-			result = fillBuffer(bufferA);
-			if(result != bufferError::OK) {
-				return result;
-			}
+			pthread_join(bufferThread, NULL);
+			bufferStruct b{this,&bufferB};
+			(void) pthread_create(&bufferThread,NULL,&bufferFillThreadWrap, &b);
 		}
 		currentBuffer = p_bufferA;
 		currentPos = 0;
-		offset = 0;
-
+		offset = BUFSIZE;
 	}
 
 	/*	nothing to switch	*/
@@ -198,10 +213,15 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 		currentBuffer = p_bufferB;
 		offset = BUFSIZE;
 	}
+	else if((currentPos >= BUFSIZE * 2) && (currentPos < BUFSIZE * 3 )) {
+		/*	buffer C	*/
+		currentBuffer = p_bufferC;
+		offset = BUFSIZE * 2;
+	}
 
 	/*	to fix fillBuffer bug if currentPos = 512 before and after an ungetchar()	*/
 	/*	boolean is reset in enough range so that ungetchar() woun't get us into this	*/
-	if(currentPos == 500 || currentPos == 800) {
+	if(currentPos == 500 || currentPos == 800 || currentPos == 1300) {
 		wasFilled = false;
 	}
 
@@ -209,6 +229,31 @@ bufferError::type_t Buffer::getCurrentBuffer(char*& currentBuffer, int& offset) 
 
 }
 
+void Buffer::bufferFillThread(void* arg){
+	//bufferError::type_t result = NULL;	//aus der methode ziehen
+
+	if(currentPos == BUFSIZE * 3){ //auswählen der richtigen bufferhälfte
+		result = fillBuffer(bufferB);
+	} else if(currentPos == BUFSIZE) {
+		result = fillBuffer(bufferC);
+	} else if(currentPos == BUFSIZE) {
+		result = fillBuffer(bufferA);
+	}
+
+	//if(result != bufferError::OK) {
+	//	return (void*) &result;
+	//}
+
+	//currentBuffer = p_bufferA; //auslagern
+	//currentPos = 0; //auslagern
+	//offset = 0; //auslagern
+	//return (void*) &result;
+}
+
+void* Buffer::bufferFillThreadWrap(void* object){
+	(((bufferStruct*)object)->object)->bufferFillThread(((bufferStruct*)object)->buffer);
+	return NULL;
+}
 
 Buffer::~Buffer() {
 
@@ -218,6 +263,10 @@ Buffer::~Buffer() {
 
 	if(p_bufferB != NULL){
 		delete p_bufferB;
+	}
+
+	if(p_bufferC != NULL){
+		delete p_bufferC;
 	}
 } 
 

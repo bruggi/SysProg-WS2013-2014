@@ -16,6 +16,8 @@
 #include <unistd.h>
 #include <stdlib.h> //für posix_memalign
 
+#include <pthread.h>
+
 namespace buffer {
 
 namespace bufferError {
@@ -36,9 +38,12 @@ private:
 
 	void* bufferA;
 	void* bufferB;
+	void* bufferC;
 
 	char* p_bufferA;
 	char* p_bufferB;
+	char* p_bufferC;
+
 	size_t currentPos;
 	int fileId;
 	bool wasFilled;
@@ -52,6 +57,16 @@ private:
 	bufferError::type_t fillBuffer(void* buffer);
 
 	bufferError::type_t getCurrentBuffer(char*& currentBuffer, int& offset);
+
+	pthread_t bufferThread;
+	void bufferFillThread(void* varA);
+	static void* bufferFillThreadWrap(void* arg);
+	bufferError::type_t result = bufferError::NULL_POINTER;
+
+	struct bufferStruct{
+		Buffer* object;
+		void* buffer;
+	};
 
 public:
 	Buffer();

@@ -7,7 +7,7 @@
 
 
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -pthread -std=c++11
 
 ###
 # path variables

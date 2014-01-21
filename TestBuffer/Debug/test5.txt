@@ -1,0 +1,6 @@
+ 
+Komment Test
+hallo/ich
+/* kommentar *+*+/ + **/
+
+ENDE

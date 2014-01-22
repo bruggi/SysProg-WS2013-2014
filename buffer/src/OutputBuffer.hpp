@@ -9,7 +9,12 @@
 #define OUTPUTBUFFER_HPP_INCLUDED
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <pthread.h>
 
 namespace buffer {
 
@@ -32,6 +37,38 @@ private:
 	FILE* filePtr_out;
 	FILE* filePtr_log;
 
+	char* outBuffer_A;	// 1-_> ID
+	char* outBuffer_B;	// 2--> ID
+	int currentBufferID;
+	size_t BUFFERSIZE;
+	size_t charactersSaved;
+
+	struct threadparam {
+		char* buffer;
+		bool shouldTerminate;
+		FILE* filePtr;
+		size_t BUFSIZE;
+		pthread_mutex_t* cond_mutex;
+		pthread_cond_t* writeCond;
+	};
+
+	struct bufferStruct {
+		OutputBuffer* object;
+		threadparam* params;
+	};
+
+	threadparam params_thread;
+	bufferStruct wrapper;
+
+	pthread_cond_t writeCond;
+	pthread_mutex_t cond_mutex;
+	pthread_t outThread;
+
+	pthread_mutex_t log_mutex;
+
+
+	void writeOutThread(void* param);
+	static void* writeOutThreadWrapper(void* object);
 
 public:
 

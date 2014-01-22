@@ -6,7 +6,7 @@
 
 
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -pthread
 
 ###
 # path variables
@@ -23,7 +23,7 @@ SCANNER_DIR = ../scanner
 PARSER_DIR = ../parser
  
 INCLUDES = -I$(SCANNER_DIR)/include -I$(BUFFER_DIR)/src -I$(AUTOMAT_DIR)/include -I$(SYMTABLE_DIR) -I$(PARSER_DIR)/include
-LIBS = -L$(LIB_DIR) -lscanner -lparser
+LIBS = -L$(LIB_DIR) -lscanner -lparser -lpthread
 
 
 OBJS = $(OBJ_DIR)/main.o

@@ -37,6 +37,7 @@ int main(int argc, char **argv) {
 	if(parser->typeCheck()) {
 		printf("typeCheck ok!\n");
 		parser->makeCode();
+		printf("Code generated in %s.\n", argv[2]);
 	} else {
 		printf("typeCheck not OK!\n");
 		printf("see logFile: %s for more informations!\n", argv[3]);
@@ -44,6 +45,7 @@ int main(int argc, char **argv) {
 	}
 
 	printf("DONE!\n");
+	delete parser;
 	return 0;
 }
 

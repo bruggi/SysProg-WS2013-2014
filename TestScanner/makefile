@@ -6,7 +6,7 @@
 
 
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -pthread
 
 ###
 # path variables
@@ -22,7 +22,7 @@ SYMTABLE_DIR = ../symtable
 SCANNER_DIR = ../scanner
  
 INCLUDES = -I$(SCANNER_DIR)/include -I$(BUFFER_DIR)/src -I$(AUTOMAT_DIR)/include -I$(SYMTABLE_DIR)
-LIBS = -L$(LIB_DIR) -lscanner
+LIBS = -L$(LIB_DIR) -lscanner -lpthread
 
 
 OBJS = $(OBJ_DIR)/main.o

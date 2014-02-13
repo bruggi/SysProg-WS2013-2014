@@ -31,6 +31,7 @@ OutputBuffer::OutputBuffer() {
 	writeCond = PTHREAD_COND_INITIALIZER;
 	cond_mutex = PTHREAD_MUTEX_INITIALIZER;
 	log_mutex = PTHREAD_MUTEX_INITIALIZER;
+	ready_mutex = PTHREAD_MUTEX_INITIALIZER;
 	params_thread.buffer = NULL;
 	params_thread.shouldTerminate = false;
 	currentBufferID = 0;
@@ -74,19 +75,22 @@ void OutputBuffer::writeOutThread(void* param) {
 
 	while(!params->shouldTerminate) {
 
-	pthread_mutex_lock(params->cond_mutex);
-	pthread_cond_wait(params->writeCond, params->cond_mutex);
+		pthread_mutex_unlock(params->ready_mutex);
 
+		pthread_mutex_lock(params->cond_mutex);
+		pthread_cond_wait(params->writeCond, params->cond_mutex);
 
-	int ret = fwrite(params->buffer, sizeof(char), strlen(params->buffer), params->filePtr);
-	if(ret != (int)strlen(params->buffer)) {
-		printLog(logLevel::FATAL, __func__, "Not successfully written: %d of %d!", ret, (int)strlen(params->buffer));
-	}
+		pthread_mutex_lock(params->ready_mutex);
 
-	fflush(params->filePtr);
-	memset(params->buffer, 0, strlen(params->buffer));
-//	printf("Thread: %d characters written.\n", ret);
-	pthread_mutex_unlock(params->cond_mutex);
+		int ret = fwrite(params->buffer, sizeof(char), strlen(params->buffer), params->filePtr);
+		if(ret != (int)strlen(params->buffer)) {
+			printLog(logLevel::FATAL, __func__, "Not successfully written: %d of %d!", ret, (int)strlen(params->buffer));
+		}
+
+		fflush(params->filePtr);
+		memset(params->buffer, 0, strlen(params->buffer));
+	//	printf("Thread: %d characters written.\n", ret);
+		pthread_mutex_unlock(params->cond_mutex);
 
 	}
 	printLog(logLevel::INFO, __func__, "Thread terminated.");
@@ -138,6 +142,7 @@ bool OutputBuffer::init(const char* out_path, const char* log_path) {
 	params_thread.BUFSIZE = BUFFERSIZE;
 	params_thread.cond_mutex = &cond_mutex;
 	params_thread.writeCond = &writeCond;
+	params_thread.ready_mutex = &ready_mutex;
 	wrapper.object = this;
 	wrapper.params = &params_thread;
 	pthread_create(&outThread, NULL, writeOutThreadWrapper, (void*) &wrapper);
@@ -243,22 +248,23 @@ bool OutputBuffer::write(const char* format, ...) {
 	va_start(args, format);
 
 	tempBuffer += charactersSaved;
-	usleep(100);	// wait , because main thread could be too fast.
+//	usleep(100);	// wait , because main thread could be too fast.
 
 	/*	enough characters collected, write out now	*/
 	if((charactersSaved + strlen(format)) > BUFFERSIZE) {
 		params_thread.buffer = temp2Buffer;
-		pthread_mutex_lock(&cond_mutex);
 
-//		printf("%lu character to write seen.\n", charactersSaved);
-//		printf("signal thread for writing buffer: %d\n", currentBufferID);
+		/*	wait until write thread is ready	*/
+		pthread_mutex_lock(&ready_mutex);
+		/*	block here, if write thread is not ready	*/
+		pthread_mutex_unlock(&ready_mutex);
 
 		/*	signal write thread	*/
+		pthread_mutex_lock(&cond_mutex);
 		pthread_cond_signal(&writeCond);
-
 		pthread_mutex_unlock(&cond_mutex);
-		charactersSaved = 0;
 
+		charactersSaved = 0;
 		currentBufferID = (currentBufferID % 2) + 1;
 		if(currentBufferID % 2 == 0) {
 			tempBuffer = outBuffer_B;

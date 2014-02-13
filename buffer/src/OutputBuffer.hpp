@@ -37,7 +37,7 @@ private:
 	FILE* filePtr_out;
 	FILE* filePtr_log;
 
-	char* outBuffer_A;	// 1-_> ID
+	char* outBuffer_A;	// 1--> ID
 	char* outBuffer_B;	// 2--> ID
 	int currentBufferID;
 	size_t BUFFERSIZE;
@@ -50,6 +50,7 @@ private:
 		size_t BUFSIZE;
 		pthread_mutex_t* cond_mutex;
 		pthread_cond_t* writeCond;
+		pthread_mutex_t* ready_mutex;
 	};
 
 	struct bufferStruct {
@@ -62,6 +63,7 @@ private:
 
 	pthread_cond_t writeCond;
 	pthread_mutex_t cond_mutex;
+	pthread_mutex_t ready_mutex;
 	pthread_t outThread;
 
 	pthread_mutex_t log_mutex;

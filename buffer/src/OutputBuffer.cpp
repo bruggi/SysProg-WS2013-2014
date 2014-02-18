@@ -48,6 +48,12 @@ OutputBuffer::~OutputBuffer() {
 		tempBuffer = outBuffer_A;
 	}
 	params_thread.buffer = tempBuffer;
+
+	/*	wait until write thread is ready	*/
+	pthread_mutex_lock(&ready_mutex);
+	/*	block here, if write thread is not ready	*/
+	pthread_mutex_unlock(&ready_mutex);
+
 	pthread_mutex_lock(&cond_mutex);
 //	printf("Destructor: signal thread to write buffer %d\n", currentBufferID);
 	pthread_cond_signal(&writeCond);
